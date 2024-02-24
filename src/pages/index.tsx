@@ -49,7 +49,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
     initialData: prop.lanyard,
   });
 
-  return <>(
+  return (
     <div>
       <Head>
         <title>jaylen.nyc</title>
@@ -158,5 +158,5 @@ export default function Home(prop: lanyardprops): JSX.Element {
         </div>
       </main>
     </div>
-  )</>;
+  );
 }

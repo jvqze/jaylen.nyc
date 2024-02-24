@@ -27,7 +27,7 @@ const Time = () => {
       {date.format('MMMM Do, YYYY • h:mm:ss A')}{' '}
       {currentEvent && (
         <span className="font-bold">
-          —{' '}
+          {' '}
           {
             {
               christmas: 'Merry Christmas!',
@@ -40,7 +40,7 @@ const Time = () => {
         </span>
       )}
     </p>
-  )</>
+    )</>
 }
 
 export default Time

@@ -22,7 +22,7 @@ const Time = () => {
     return () => clearInterval(timer)
   }, [])
 
-  return <>(
+  return (
     <p className="hidden md:block">
       {date.format('MMMM Do, YYYY • h:mm:ss A')}{' '}
       {currentEvent && (
@@ -40,7 +40,7 @@ const Time = () => {
         </span>
       )}
     </p>
-    )</>
+    )
 }
 
 export default Time

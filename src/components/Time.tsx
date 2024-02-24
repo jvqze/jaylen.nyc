@@ -34,6 +34,7 @@ const Time = () => {
               newYear: 'Happy New Year!',
               earthDay: 'Happy Earth Day!',
               birthday: 'It\'s my birthday!',
+              thanksgiving: 'I\'m thankful for you!'
             }[currentEvent]
           }
         </span>

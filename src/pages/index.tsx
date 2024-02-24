@@ -85,7 +85,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
                       </div>
                     </div>
                     {lanyard?.discord_user.username}
-                    <p className="opacity-90 text-sm">
+                    <p className="opacity-20 text-sm">
                       (my discord)
                     </p>
                   </span>

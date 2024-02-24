@@ -32,7 +32,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-const DISCORD_ID = "363571068012593156";
+const DISCORD_ID = "1203092268672753785";
 const statusMap: Record<Data["discord_status"], string> = {
   online: "ring-green-500",
   idle: "ring-yellow-500",
@@ -85,6 +85,9 @@ export default function Home(prop: lanyardprops): JSX.Element {
                       </div>
                     </div>
                     {lanyard?.discord_user.username}
+                    <p className="opacity-90 text-sm">
+                      (my discord)
+                    </p>
                   </span>
                 </span>
 

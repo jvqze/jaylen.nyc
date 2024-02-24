@@ -61,7 +61,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
             <div className="space-y-2">
                             <img
                 className="block rounded-xl shadow-xl mb-4 shadow-neutral-300 dark:shadow-none"
-                src="https://cdn.jaylen.nyc/r/Photoshop_PFR46qpeFk.png"
+                src="https://cdn.jaylen.nyc/r/opera_0RmFO9ItHS.png"
                 alt="a banner i made in photoshop :D"
                 height={"400"}
                 width={"1000"}

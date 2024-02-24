@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 export default function Home(): JSX.Element {
-  return <>(
+  return (
     <div className="dark:text-white antialiased bg-ThemeDark bg-auto">
       <Head>
         <title>jaylen.lol</title>
@@ -23,5 +23,5 @@ export default function Home(): JSX.Element {
         </div>
       </main>
     </div>
-  )</>;
+  );
 }

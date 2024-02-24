@@ -33,9 +33,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           </ul>
         </nav>
         <div>
-          <div className="text-right select-none sm:select-text w-full inline-flex text-lg rounded-sm focus:outline-none focus:opacity-100 focus:ring items-center space-x-2 no-underline opacity-50 hover:opacity-100 h-12 mt-0.5">
-            <Time />
-          </div>
         </div>
       </div>
 

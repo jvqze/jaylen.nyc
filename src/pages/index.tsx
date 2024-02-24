@@ -52,7 +52,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
   return (
     <div>
       <Head>
-        <title>jaylen.lol</title>
+        <title>jaylen.nyc</title>
       </Head>
 
       <main>
@@ -61,8 +61,8 @@ export default function Home(prop: lanyardprops): JSX.Element {
             <div className="space-y-2">
                             <img
                 className="block rounded-xl shadow-xl mb-4 shadow-neutral-300 dark:shadow-none"
-                src="https://cdn.jaylen.lol/r/opera_3myin0G3e1.gif"
-                alt="a nice image outside..."
+                src="https://cdn.jaylen.nyc/Photoshop_PFR46qpeFk.png"
+                alt="a banner i made in photoshop :D"
                 height={"400"}
                 width={"1000"}
               />
@@ -121,9 +121,9 @@ export default function Home(prop: lanyardprops): JSX.Element {
               <p className="opacity-90">
                 I made this website just as a little project for myself & every
                 once & awhile this website will be updated whenever I have time.
-                I'm still learning how to code so right now, it could look weird
+                I'm still learning how to code for future Next.js & React projects, it could look weird
                 but I'm trying my best to make it look pretty. If I think I'm
-                fully finished with this then I won't update this anymore.
+                fully finished with this then I won't update this anymore. (im lying)
               </p>
               <p className="opacity-80 text-center">
                 &rarr; I've checked other websites people created and got ideas
@@ -131,51 +131,23 @@ export default function Home(prop: lanyardprops): JSX.Element {
               </p>
             </div>
             <div className="space-y-4">
-              <h1 className="text-center text-2xl font-extrabold sm:text-3xl">
-                main people i enjoy talking too
-              </h1>
-              <p className="opacity-90 text-center text-[#ff2929a9]">
-                ❤️ angel, E. Vega, ethan, pablo, casper, sleepnt, ethan, klee, skyla, destinee ryeli, bup ❤️
-              </p>
-              <p className="opacity-70 text-center">
-                i enjoy talking to all of you guys. even if we become distant, i
-                will always have you here no matter what. and thats a promise i
-                will keep. love u
-              </p>
-            </div>
-            <div className="space-y-4">
               <h1 className="text-2xl font-extrabold sm:text-3xl">
-                Applications
+               what i used for coding this website
               </h1>
               <p className="opacity-90">
-                This means all apps I use such as Games, Techs, & many more.
-                (This part is just for fun haha)
+                dont be surprised ❤
               </p>
               <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
                 <ListItem icon={SiSpotify} text="Spotify" />
-                <ListItem icon={SiAtom} text="Atom" />
                 <ListItem icon={SiAdobefonts} text="Adobe Fonts" />
-                <ListItem icon={SiAdobephotoshop} text="Adobe Photoshop" />
-                <ListItem icon={SiRoblox} text="ROBLOX" />
-                <ListItem icon={SiSteam} text="Steam" />
-                <ListItem icon={SiDiscord} text="Discord" />
-                <ListItem icon={SiApple} text="Apple" />
-                <ListItem icon={SiMinecraft} text="Minecraft" />
-                <ListItem icon={SiOrigin} text="Origin" />
-                <ListItem icon={SiOsu} text="OSU!" />
-                <ListItem icon={SiXbox} text="XBOX" />
                 <ListItem icon={SiVisualstudiocode} text="Visual Studio Code" />
                 <ListItem icon={SiGithub} text="Github" />
-                <ListItem icon={SiGitlab} text="GItlab" />
                 <ListItem icon={SiGit} text="Git" />
-                <ListItem icon={SiTiktok} text="Tiktok" />
                 <ListItem icon={SiJavascript} text="Javascript" />
-                <ListItem icon={SiPython} text="Python" />
                 <ListItem icon={SiHtml5} text="HTML" />
                 <ListItem icon={SiCss3} text="CSS" />
                 <ListItem icon={SiTailwindcss} text="TailwindCSS" />
                 <ListItem icon={SiNextdotjs} text="Next.js" />
-                <ListItem icon={SiSega} text="SEGA" />
                 <ListItem icon={SiTypescript} text="TypeScript" />
               </ul>
             </div>

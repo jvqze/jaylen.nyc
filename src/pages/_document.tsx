@@ -9,7 +9,7 @@ export default class ADocument extends Document {
 					<link
 						rel="icon"
 						type="image/png"
-						href="https://avatars.githubusercontent.com/u/52697072?v=4"
+						href="https://avatars.githubusercontent.com/u/159128860?v=4"
 					/>
 					<meta name="theme-color" content="#ffffff" />
 					<meta

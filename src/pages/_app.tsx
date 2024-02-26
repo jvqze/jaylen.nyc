@@ -9,7 +9,7 @@ const Time = dynamic(() => import("../components/Time"), {
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <div className="mx-auto max-w-4xl py-10 px-5 bg-ThemeDark">
+    <div className="mx-auto max-w-4xl py-10 px-5">
       <div className="flex items-center space-x-2">
         <nav className="flex-1">
           <ul className="flex space-x-4">

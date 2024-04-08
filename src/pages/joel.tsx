@@ -50,11 +50,6 @@ export default function Friends(): JSX.Element {
               <p className="opacity-80 text-center">
                 &rarr; happy birthday joel. &larr;
               </p>
-              <ReactPlayer
-                url='https://audio.jukehost.co.uk/fWhZlWUFNAv2AZSBzPSatSmFKrH8dt2c'
-                controls={false}
-                playing={true}
-              />
             </div>
           </main>
         </div>

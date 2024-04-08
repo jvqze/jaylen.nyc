@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-export default function Home(): JSX.Element {
+export default function Friends(): JSX.Element {
   return (
     <div className="dark:text-white antialiased bg-ThemeDark bg-auto">
       <Head>

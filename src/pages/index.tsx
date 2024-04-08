@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
 import type { Data as LanyardData } from "use-lanyard";
 import { useLanyard, type Data } from "use-lanyard";
@@ -59,7 +59,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
         <div>
           <main className="mx-auto max-w-3xl space-y-4 md:py-24">
             <div className="space-y-2">
-                            <img
+              <img
                 className="block rounded-xl shadow-xl mb-4 shadow-neutral-300 dark:shadow-none"
                 src="https://cdn.jaylen.nyc/r/opera_0RmFO9ItHS.png"
                 alt="a banner i made in photoshop :D"
@@ -71,9 +71,8 @@ export default function Home(prop: lanyardprops): JSX.Element {
                   <span id="username">
                     {" "}
                     <div
-                      className={`h-8 w-8 mr-2 ring-[5px] md:h-12 md:w-12 md:ring-[6px] ${
-                        lanyard ? statusMap[lanyard.discord_status] : null
-                      } rounded-full inline-block`}
+                      className={`h-8 w-8 mr-2 ring-[5px] md:h-12 md:w-12 md:ring-[6px] ${lanyard ? statusMap[lanyard.discord_status] : null
+                        } rounded-full inline-block`}
                     >
                       <div className="h-8 w-8 md:h-12 md:w-12 rounded-full select-none text-white ring-[3px] ring-ThemeDark">
                         <img
@@ -135,7 +134,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
             </div>
             <div className="space-y-4">
               <h1 className="text-2xl font-extrabold sm:text-3xl">
-               what i used for coding this website
+                what i used for coding this website
               </h1>
               <p className="opacity-90">
                 dont be surprised ❤

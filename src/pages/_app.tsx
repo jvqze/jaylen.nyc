@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import dynamic from "next/dynamic";
 import { AppProps } from "next/app";
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { ThemeSwitcher } from "../components/ToggleTheme";
 const Time = dynamic(() => import("../components/Time"), {
   ssr: false
 });

@@ -34,7 +34,7 @@
         "@types/react": "18.0.32",
         "@types/react-dom": "18.0.11",
         "@types/request-ip": "^0.0.41",
-        "autoprefixer": "10.4.13",
+        "autoprefixer": "10.4.19",
         "postcss": "^8.4.35",
         "prettier": "^3.2.5",
         "prettier-plugin-sort-json": "^4.0.0",

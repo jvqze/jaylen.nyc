@@ -73,7 +73,8 @@ const Christopher: NextPage = () => {
                             className="h-32 w-32 rounded-full object-cover"
                         />
                     </div>
-                    <p className="pt-5">peep the beautiful pictures of us 💗, most importantly you</p>
+                    <p className="pt-5">peep the beautiful pictures of us 💗, most importantly you.<br></br><br></br>
+Now I'm writing this on my phone @ 3:36 AM, Chris. I cannot sleep at the moment, just having some troubles. I just want to reflect back on what I thought about before meeting you. I was always thinking on, while the duration to going to the thai dinner place we went to is if this actual date would go good or I would make it bad. I also had thoughts and hoping that I would meet someone refreshing and actually not bad. And...I did! You're actually amazing Christopher. You've refreshed my mind and really see something in the future for this relationship. As I've told you before, the relationship I had before...was not very similar at all like this one. You know that I've been physically/mentally abused which isn't that much a touchy subject for me anymore. I've been hit, brusied where to the point I have a permanent mark, and forced to do things I didn't like. This has gone to a certain point where I almost ended my life... I started being scared and felt like my life was being outrageously controlled. But now... I feel...amazing. He left a pretty bad open cut (not physically), and it's being carefully taken care of...by you :) I love you, Chris. You truly mean a lot to me, the future ahead of us looks bright in my eyes ❤️ </p>
                 </main>
             </div>
         </div>

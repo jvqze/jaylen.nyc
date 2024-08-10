@@ -32,8 +32,7 @@ import SpotifySong from "../components/Intergration";
 import { ListItem } from "../components/Items";
 
 import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
-import type { Data as LanyardData } from "use-lanyard";
-import type { Data } from "use-lanyard";
+import type { Data, Data as LanyardData } from "use-lanyard";
 
 const DISCORD_ID = "1203092268672753785";
 const statusMap: Record<Data["discord_status"], string> = {
@@ -70,27 +69,23 @@ export default function Home(prop: lanyardprops): JSX.Element {
                                 width={"1000"}
                             />
                             <ul>
-                                <span className="text-3xl font-extrabold sm:text-4xl md:text-6xl">
-                                    <span id="username">
-                                        {" "}
+                                <div className="text-3xl font-extrabold sm:text-4xl md:text-6xl">
+                                    <div id="username" className="flex items-center gap-3">
                                         <div
                                             className={`mr-2 h-8 w-8 ring-[5px] md:h-12 md:w-12 md:ring-[6px] ${
                                                 lanyard ? statusMap[lanyard.discord_status] : null
-                                            } inline-block rounded-full`}
+                                            } inline-block flex-shrink-0 rounded-full`}
                                         >
-                                            <div className="h-8 w-8 select-none rounded-full text-white ring-[3px] ring-ThemeDark md:h-12 md:w-12">
-                                                <img
-                                                    className="h-8 w-8 rounded-full md:h-12 md:w-12"
-                                                    src={`https://cdn.discordapp.com/avatars/${lanyard?.discord_user.id}/${lanyard?.discord_user.avatar}`}
-                                                    alt="Avatar"
-                                                    draggable={false}
-                                                />
-                                            </div>
+                                            <img
+                                                className="h-8 w-8 rounded-full ring-[3px] ring-ThemeDark md:h-12 md:w-12"
+                                                src={`https://cdn.discordapp.com/avatars/${lanyard?.discord_user.id}/${lanyard?.discord_user.avatar}`}
+                                                alt="Avatar"
+                                                draggable={false}
+                                            />
                                         </div>
-                                        {lanyard?.discord_user.username}
-                                        <p className="text-sm opacity-20">(my discord)</p>
-                                    </span>
-                                </span>
+                                        <span>{lanyard?.discord_user.username}</span>
+                                    </div>
+                                </div>
 
                                 <SpotifySong />
                             </ul>
@@ -99,7 +94,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
                                 <span className="font-extrabold text-Blurple">Jaylen</span>
                                 <span className="text-sm font-extrabold"> [cis male]</span>.
                                 Currently living at{" "}
-                                <span className="font-extrabold text-[#ADD8E6]">
+                                <span className="font-extrabold text-[#b497f8]">
                                     {lanyard?.kv.location}
                                 </span>
                                 . I'm an aspiring Software Developer and currently learning/coding{" "}
@@ -138,7 +133,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
                             </h1>
                             <p className="opacity-90">dont be surprised ❤</p>
                             <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                                <ListItem icon={SiSpotify} text="Spotify" />
+                                <ListItem icon={SiSpotify} text="Spotify (for sanity)" />
                                 <ListItem icon={SiAdobefonts} text="Adobe Fonts" />
                                 <ListItem icon={SiVisualstudiocode} text="Visual Studio Code" />
                                 <ListItem icon={SiGithub} text="Github" />

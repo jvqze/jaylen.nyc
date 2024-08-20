@@ -140,11 +140,11 @@ export default function Home({ lanyard1, lanyard2 }: LanyardProps): JSX.Element 
                             <p className="text-2xl text-gray-100">From yours truly,</p>
                             <p className="text-3xl font-semibold text-purple-600">Jaylen</p>
                             <img
-                                    className="h-12 w-12 rounded-full"
-                                    src={`https://cdn.discordapp.com/avatars/${lanyardData1?.discord_user.id}/${lanyardData1?.discord_user.avatar}`}
-                                    alt="Jaylen's Avatar"
-                                    draggable={false}
-                                />
+                                className="h-12 w-12 rounded-full"
+                                src={`https://cdn.discordapp.com/avatars/${lanyardData1?.discord_user.id}/${lanyardData1?.discord_user.avatar}`}
+                                alt="Jaylen's Avatar"
+                                draggable={false}
+                            />
                         </div>
                     </div>
                 </div>

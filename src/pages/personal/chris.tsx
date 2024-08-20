@@ -136,9 +136,15 @@ export default function Home({ lanyard1, lanyard2 }: LanyardProps): JSX.Element 
                             with you, and I want to be seen, cherished, and valued just like you are
                             to me.
                         </p>
-                        <div className="mt-8 text-right">
+                        <div className="mt-8 flex items-center justify-end space-x-3 text-right">
                             <p className="text-2xl text-gray-100">From yours truly,</p>
                             <p className="text-3xl font-semibold text-purple-600">Jaylen</p>
+                            <img
+                                    className="h-12 w-12 rounded-full"
+                                    src={`https://cdn.discordapp.com/avatars/${lanyardData1?.discord_user.id}/${lanyardData1?.discord_user.avatar}`}
+                                    alt="Jaylen's Avatar"
+                                    draggable={false}
+                                />
                         </div>
                     </div>
                 </div>

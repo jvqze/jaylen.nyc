@@ -69,12 +69,12 @@ export default function Home(prop: lanyardprops): JSX.Element {
                                 width={"1000"}
                             />
                             <ul>
-                                <div className="text-3xl font-extrabold sm:text-4xl md:text-6xl">
+                            <div className="text-3xl font-extrabold sm:text-3xl md:text-5xl">
                                     <div id="username" className="flex items-center gap-3">
                                         <div
                                             className={`mr-2 h-8 w-8 ring-[5px] md:h-12 md:w-12 md:ring-[6px] ${
                                                 lanyard ? statusMap[lanyard.discord_status] : null
-                                            } inline-block flex-shrink-0 rounded-full`}
+                                            } inline-block rounded-full`}
                                         >
                                             <img
                                                 className="h-8 w-8 rounded-full ring-[3px] ring-ThemeDark md:h-12 md:w-12"
@@ -83,7 +83,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
                                                 draggable={false}
                                             />
                                         </div>
-                                        <span>{lanyard?.discord_user.username}</span>
+                                        <span className="relative bottom-1 ">{lanyard?.discord_user.username}</span>
                                     </div>
                                 </div>
 

@@ -83,7 +83,6 @@ export default function Home({ lanyard1, lanyard2 }: LanyardProps): JSX.Element 
                         </div>
                     </div>
 
-                    {/* Shared Paragraph Below */}
                     <div className="pt-8">
                         <p className="text-xl">
                             To my dearest boyfriend,{" "}

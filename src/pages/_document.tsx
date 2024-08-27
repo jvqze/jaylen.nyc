@@ -1,4 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default class ADocument extends Document {
     render() {
@@ -25,6 +27,8 @@ export default class ADocument extends Document {
                     <NextScript />
                     <script async src="/theme.js" />
                 </body>
+                <SpeedInsights />
+                <Analytics />
             </Html>
         );
     }

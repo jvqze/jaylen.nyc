@@ -1,6 +1,4 @@
 import "../styles/globals.css";
-
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 
@@ -15,7 +13,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                 <nav className="flex-1">
                     <ul className="flex space-x-4">
                         <li className="shrink-0">
-                            <SpeedInsights />
                             <a
                                 className="block rounded-md py-3 font-mono text-lg no-underline dark:hover:text-white sm:inline-block sm:rounded-full sm:bg-white/0 sm:px-5 sm:text-sm sm:font-normal sm:hover:bg-neutral-900/5 dark:sm:hover:bg-white/10"
                                 href="/"

@@ -5,7 +5,7 @@ import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "
 import type { Data, Data as LanyardData } from "use-lanyard";
 
 const DISCORD_ID_1 = "1203092268672753785";
-const DISCORD_ID_2 = "305858738097750027"; // Replace with the second Discord ID
+const DISCORD_ID_2 = "305858738097750027";
 
 const statusMap: Record<Data["discord_status"], string> = {
     online: "ring-green-500",
@@ -30,13 +30,12 @@ export default function Home({ lanyard1, lanyard2 }: LanyardProps): JSX.Element 
     return (
         <div>
             <Head>
-                <title>jaylen.nyc</title>
+                <title>Christopher, my beloved</title>
             </Head>
 
             <main>
                 <div className="mx-auto max-w-6xl space-y-4 md:py-24">
                     <div className="flex justify-evenly space-x-8">
-                        {/* Account 1 */}
                         <div className="space-y-2">
                             <div className="text-xl font-extrabold sm:text-2xl md:text-4xl">
                                 <div id="username1" className="flex items-center gap-3">
@@ -59,7 +58,6 @@ export default function Home({ lanyard1, lanyard2 }: LanyardProps): JSX.Element 
                             </div>
                         </div>
 
-                        {/* Account 2 */}
                         <div className="space-y-2">
                             <div className="text-xl font-extrabold sm:text-2xl md:text-4xl">
                                 <div id="username2" className="flex items-center gap-3">

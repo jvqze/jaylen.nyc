@@ -8,6 +8,7 @@ export default class ADocument extends Document {
             <Html lang="en" className="antialiased dark:bg-ThemeDark dark:text-white overflow-x-hidden overscroll-none min-h-screen w-full">
                 <Head>
                     <meta charSet="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></meta>
                     <link
                         rel="icon"
                         type="image/png"

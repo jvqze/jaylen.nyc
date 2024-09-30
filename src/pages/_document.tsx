@@ -1,6 +1,6 @@
-import Document, { Head, Html, Main, NextScript } from "next/document";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 export default class ADocument extends Document {
     render() {
@@ -14,7 +14,7 @@ export default class ADocument extends Document {
                         href="https://avatars.githubusercontent.com/u/159128860?v=4"
                     />
                     <meta name="theme-color" content="#ffffff" />
-                    <meta name="description" content="welcome to my website! :^)" />
+                    <meta name="description" content="Welcome to my website!" />
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link
@@ -22,7 +22,7 @@ export default class ADocument extends Document {
                         rel="stylesheet"
                     />
                 </Head>
-                <body className="bg-cover bg-center antialiased dark:bg-ThemeDark dark:text-white">
+                <body className="bg-cover antialiased dark:bg-ThemeDark dark:text-white">
                     <Main />
                     <NextScript />
                     <script async src="/theme.js" />

@@ -1,55 +1,50 @@
+import { motion } from "framer-motion";
 import Head from "next/head";
+import { useState } from "react";
 import {
     SiAdobefonts,
-    SiAdobephotoshop,
-    SiApple,
-    SiAtom,
     SiCss3,
-    SiDiscord,
     SiGit,
     SiGithub,
-    SiGitlab,
     SiHtml5,
     SiJavascript,
-    SiMinecraft,
     SiNextdotjs,
-    SiOrigin,
-    SiOsu,
-    SiPython,
-    SiRoblox,
-    SiSega,
     SiSpotify,
-    SiSteam,
     SiTailwindcss,
-    SiTiktok,
     SiTypescript,
     SiVisualstudiocode,
-    SiXbox,
 } from "react-icons/si";
-import { useLanyard } from "use-lanyard";
-
-import SpotifySong from "../components/Intergration";
-import { ListItem } from "../components/Items";
-
-import type { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next";
-import type { Data, Data as LanyardData } from "use-lanyard";
+import SpotifyIntegration from "../components/SpotifyIntegration";
+import { Data as LanyardData, useLanyard } from "use-lanyard";
 
 const DISCORD_ID = "1203092268672753785";
-const statusMap: Record<Data["discord_status"], string> = {
-    online: "ring-green-500",
-    idle: "ring-yellow-500",
-    dnd: "ring-red-500",
-    offline: "ring-neutral-500",
+
+const statusMap = {
+    online: "bg-green-500",
+    idle: "bg-yellow-500",
+    dnd: "bg-red-500",
+    offline: "bg-neutral-500",
+};
+
+const statusTextMap = {
+    online: "online",
+    idle: "idle",
+    dnd: "DND",
+    offline: "offline",
 };
 
 type lanyardprops = {
     lanyard: LanyardData;
 };
 
-export default function Home(prop: lanyardprops): JSX.Element {
+export default function Page(prop: lanyardprops): JSX.Element {
     const { data: lanyard } = useLanyard(DISCORD_ID, {
         initialData: prop.lanyard,
     });
+
+    const status = lanyard?.discord_status || "offline";
+    const statusColor = statusMap[status];
+    const statusText = statusTextMap[status];
 
     return (
         <div>
@@ -60,6 +55,7 @@ export default function Home(prop: lanyardprops): JSX.Element {
             <main>
                 <div>
                     <main className="mx-auto max-w-3xl space-y-4 md:py-24">
+                        {/* full site */}
                         <div className="space-y-2">
                             <img
                                 className="mb-4 block rounded-xl shadow-xl shadow-neutral-300 dark:shadow-none"
@@ -68,87 +64,125 @@ export default function Home(prop: lanyardprops): JSX.Element {
                                 height={"400"}
                                 width={"1000"}
                             />
-                            <ul>
-                            <div className="text-3xl font-extrabold sm:text-3xl md:text-5xl">
-                                    <div id="username" className="flex items-center gap-3">
-                                        <div
-                                            className={`mr-2 h-8 w-8 ring-[5px] md:h-12 md:w-12 md:ring-[6px] ${
-                                                lanyard ? statusMap[lanyard.discord_status] : null
-                                            } inline-block rounded-full`}
-                                        >
-                                            <img
-                                                className="h-8 w-8 rounded-full ring-[3px] ring-ThemeDark md:h-12 md:w-12"
-                                                src={`https://cdn.discordapp.com/avatars/${lanyard?.discord_user.id}/${lanyard?.discord_user.avatar}`}
-                                                alt="Avatar"
-                                                draggable={false}
-                                            />
-                                        </div>
-                                        <span className="relative bottom-1 ">{lanyard?.discord_user.username}</span>
-                                    </div>
-                                </div>
 
-                                <SpotifySong />
-                            </ul>
-                            <p className="opacity-90">
-                                Hey there, I'm{" "}
-                                <span className="font-extrabold text-Blurple">Jaylen</span>
-                                <span className="text-sm font-extrabold"> [cis male]</span>.
-                                Currently living at{" "}
-                                <span className="font-extrabold text-[#b497f8]">
-                                    {lanyard?.kv.location}
-                                </span>
-                                . I'm an aspiring Software Developer and currently learning/coding{" "}
-                                <span className="font-extrabold">
-                                    <span className="text-[#4B8BBE]">Pyt</span>
-                                    <span className="text-[#FFD43B]">hon</span>
-                                </span>
-                                , <span className="font-extrabold text-[#e34c26]">HTML</span>,{" "}
-                                <span className="font-extrabold text-[#F0DB4F]">Javascript</span>,{" "}
-                                <span className="font-extrabold text-[#ADD8E6]">C & C++</span> &
-                                more! On my free time I usually do work or try to learn coding
-                                languages. I'm still rusty at coding but I'm trying my best to
-                                understand everything.
-                            </p>
-                        </div>
-                        <div className="space-y-4">
-                            <h1 className="text-2xl font-extrabold sm:text-3xl">
-                                You may be asking why I made this website...
-                            </h1>
-                            <p className="opacity-90">
-                                I made this website just as a little project for myself & every once
-                                & awhile this website will be updated whenever I have time. I'm
-                                still learning how to code for future Next.js & React projects, it
-                                could look weird but I'm trying my best to make it look pretty. If I
-                                think I'm fully finished with this then I won't update this anymore.
-                                (im lying)
-                            </p>
-                            <p className="text-center opacity-80">
-                                &rarr; I've checked other websites people created and got ideas from
-                                them so thanks to those &larr;
-                            </p>
-                        </div>
-                        <div className="space-y-4">
-                            <h1 className="text-2xl font-extrabold sm:text-3xl">
-                                what i used for coding this website
-                            </h1>
-                            <p className="opacity-90">dont be surprised ❤</p>
-                            <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                                <ListItem icon={SiSpotify} text="Spotify (for sanity)" />
-                                <ListItem icon={SiAdobefonts} text="Adobe Fonts" />
-                                <ListItem icon={SiVisualstudiocode} text="Visual Studio Code" />
-                                <ListItem icon={SiGithub} text="Github" />
-                                <ListItem icon={SiGit} text="Git" />
-                                <ListItem icon={SiJavascript} text="Javascript" />
-                                <ListItem icon={SiHtml5} text="HTML" />
-                                <ListItem icon={SiCss3} text="CSS" />
-                                <ListItem icon={SiTailwindcss} text="TailwindCSS" />
-                                <ListItem icon={SiNextdotjs} text="Next.js" />
-                                <ListItem icon={SiTypescript} text="TypeScript" />
+                            <ul>
+                                <div id="username" className="flex items-center gap-3">
+                                    <img
+                                        className="h-20 w-20 rounded-2xl shadow-lg"
+                                        src={`https://cdn.discordapp.com/avatars/${lanyard?.discord_user.id}/${lanyard?.discord_user.avatar}`}
+                                        alt="my avatar :3"
+                                        draggable={false}
+                                    />
+                                    <div className="mt-10 inline-flex place-items-center gap-3 rounded-full bg-neutral-200 px-4 py-2 dark:bg-neutral-800">
+                                        <span
+                                            className={`inline-block h-4 w-4 rounded-full ${statusColor}`}
+                                        ></span>
+                                        {statusText}
+                                    </div>
+                                    <SpotifyIntegration />
+                                </div>
                             </ul>
                         </div>
+
+                        <section className="space-y-6">
+                            {/* about moi but edited :) */}
+                            <div className="rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4 text-white shadow-lg">
+                                <h2 className="text-xl font-bold">
+                                    Hey, I'm Jaylen!{" "}
+                                    <span className="text-sm font-extrabold text-[#ffffffa4]">
+                                        (he/him)
+                                    </span>
+                                </h2>
+                                <p>
+                                    Currently living at{" "}
+                                    <span className="font-extrabold text-[#d2bfff]">
+                                        {lanyard?.kv.location}
+                                    </span>
+                                    . I'm an aspiring Software Developer and currently
+                                    learning/coding{" "}
+                                    <span className="font-extrabold">
+                                        <span className="text-[#4B8BBE]">Pyt</span>
+                                        <span className="text-[#FFD43B]">hon</span>
+                                    </span>
+                                    , <span className="font-extrabold text-[#e34c26]">HTML</span>,{" "}
+                                    <span className="font-extrabold text-[#F0DB4F]">
+                                        Javascript
+                                    </span>
+                                    , <span className="font-extrabold text-[#ADD8E6]">C & C++</span>{" "}
+                                    & more! On my free time I usually do work or try to learn coding
+                                    languages. I'm still rusty at coding but I'm trying my best to
+                                    understand everything.
+                                </p>
+                            </div>
+
+                            {/* coding bar cuz why not and it looks awwwwwsome */}
+                            <div className="space-y-4">
+                                <h2 className="text-center text-2xl font-extrabold">
+                                    Coding Skills
+                                </h2>
+                                <div className="space-y-2">
+                                    <SkillProgressBar skill="Python" percentage={95} />
+                                    <SkillProgressBar skill="C# & C++" percentage={78} />
+                                    <SkillProgressBar skill="JavaScript" percentage={87} />
+                                    <SkillProgressBar skill="HTML & CSS" percentage={97} />
+                                </div>
+                            </div>
+
+                            {/* tech section :D */}
+                            <div className="space-y-4">
+                                <h2 className="text-2xl font-extrabold sm:text-3xl">Tools I Use</h2>
+                                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                                    {[
+                                        { icon: SiSpotify, text: "Spotify" },
+                                        { icon: SiAdobefonts, text: "Adobe Fonts" },
+                                        { icon: SiVisualstudiocode, text: "Visual Studio Code" },
+                                        { icon: SiGithub, text: "Github" },
+                                        { icon: SiGit, text: "Git" },
+                                        { icon: SiJavascript, text: "JavaScript" },
+                                        { icon: SiHtml5, text: "HTML" },
+                                        { icon: SiCss3, text: "CSS" },
+                                        { icon: SiTailwindcss, text: "TailwindCSS" },
+                                        { icon: SiNextdotjs, text: "Next.js" },
+                                        { icon: SiTypescript, text: "TypeScript" },
+                                    ].map((item, index) => (
+                                        <TechIcon key={index} icon={item.icon} text={item.text} />
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
                     </main>
                 </div>
             </main>
         </div>
+    );
+}
+
+function SkillProgressBar({ skill, percentage }: { skill: string; percentage: number }) {
+    return (
+        <div>
+            <div className="flex justify-between">
+                <span className="font-bold">{skill}</span>
+            </div>
+            <div className="h-4 w-full rounded-full bg-gray-300">
+                <motion.div
+                    className="h-4 rounded-full bg-blue-500"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${percentage}%` }}
+                    transition={{ duration: 1.5 }}
+                />
+            </div>
+        </div>
+    );
+}
+
+function TechIcon({ icon: Icon, text }: { icon: any; text: string }) {
+    return (
+        <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="flex flex-col items-center space-y-2 rounded-lg bg-neutral-100 p-4 shadow-md dark:bg-neutral-800"
+        >
+            <Icon className="text-4xl text-gray-700 dark:text-gray-200" />
+            <span className="font-bold text-gray-700 dark:text-gray-200">{text}</span>
+        </motion.div>
     );
 }

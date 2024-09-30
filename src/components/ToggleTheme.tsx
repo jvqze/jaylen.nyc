@@ -6,15 +6,14 @@ export const ThemeSwitcher = () => {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
 
-    const toggle = () => {
-        if (theme === "dark") {
-            setTheme("light");
-        } else {
-            setTheme("dark");
-        }
+    const toggleTheme = () => {
+        setTheme(theme === "dark" ? "light" : "dark");
     };
 
-    useEffect(() => setMounted(true), []);
+    useEffect(() => {
+        setMounted(true);
+        console.log('Mounted state:', mounted);
+    }, [mounted]);
 
     if (!mounted) return null;
 
@@ -22,16 +21,10 @@ export const ThemeSwitcher = () => {
         <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="xs:bg-gray-200 xs:dark:bg-gray-800 flex h-10 w-10 items-center justify-center rounded-lg bg-none p-3 focus:outline-none"
-            onClick={() => toggle()}
+            className="xs:bg-gray-200 xs:dark:bg-gray-800 flex h-10 w-10 items-center justify-center rounded-lg p-3 focus:outline-none"
+            onClick={toggleTheme}
         >
-            {(() => {
-                if (theme == "light") {
-                    return <BsFillMoonStarsFill />;
-                }
-
-                return <BsFillSunFill />;
-            })()}
+            {theme === "light" ? <BsFillMoonStarsFill /> : <BsFillSunFill />}
         </button>
     );
 };

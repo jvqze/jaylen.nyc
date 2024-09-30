@@ -1,6 +1,3 @@
 {
-    "recommendations": [
-        "leonardssh.vscord",
-        "esbenp.prettier-vscode"
-    ]
+    "recommendations": ["leonardssh.vscord", "esbenp.prettier-vscode"]
 }

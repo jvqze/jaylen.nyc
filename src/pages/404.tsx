@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
                     <main className="mx-auto max-w-3xl space-y-4 md:py-24">
                         <div className="space-y-4">
                             <ul>
-                                <span className="text-3xl font-extrabold sm:text-4xl md:text-6xl ">
+                                <span className="text-3xl font-extrabold sm:text-4xl md:text-6xl">
                                     404
                                 </span>
                             </ul>

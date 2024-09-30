@@ -5,7 +5,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 export default class ADocument extends Document {
     render() {
         return (
-            <Html lang="en">
+            <Html lang="en" className="antialiased dark:bg-ThemeDark dark:text-white">
                 <Head>
                     <meta charSet="utf-8" />
                     <link
@@ -22,7 +22,7 @@ export default class ADocument extends Document {
                         rel="stylesheet"
                     />
                 </Head>
-                <body className="bg-cover antialiased dark:bg-ThemeDark dark:text-white">
+                <body>
                     <Main />
                     <NextScript />
                     <script async src="/theme.js" />

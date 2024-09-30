@@ -4,7 +4,7 @@ import type { NextPage } from "next";
 
 export default function Home(): JSX.Element {
     return (
-        <div className="bg-ThemeDark bg-auto antialiased dark:text-white">
+        <div>
             <Head>
                 <title>jaylen.lol</title>
             </Head>

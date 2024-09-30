@@ -26,6 +26,14 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
                             <li className="shrink-0">
                                 <a
                                     className="block rounded-md py-3 font-mono text-lg no-underline sm:inline-block sm:rounded-full sm:bg-white/0 sm:px-5 sm:text-sm sm:font-normal sm:hover:bg-neutral-900/5 dark:hover:text-white dark:sm:hover:bg-white/10"
+                                    href="/about"
+                                >
+                                    about
+                                </a>
+                            </li>
+                            <li className="shrink-0">
+                                <a
+                                    className="block rounded-md py-3 font-mono text-lg no-underline sm:inline-block sm:rounded-full sm:bg-white/0 sm:px-5 sm:text-sm sm:font-normal sm:hover:bg-neutral-900/5 dark:hover:text-white dark:sm:hover:bg-white/10"
                                     href="/friends"
                                 >
                                     friends

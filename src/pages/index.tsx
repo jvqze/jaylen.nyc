@@ -32,7 +32,6 @@ export default function Page(prop: lanyardprops): JSX.Element {
     const statusColor = statusMap[status];
     const statusText = statusTextMap[status];
 
-    // Extract activities and find the custom status activity
     const activities = lanyard?.activities || [];
     const customStatusActivity = activities.find((activity) => activity.type === 4);
 
@@ -42,13 +41,9 @@ export default function Page(prop: lanyardprops): JSX.Element {
                 <title>jaylen.nyc</title>
             </Head>
 
-            {/* Centering the profile card */}
             <main className="flex items-center justify-center min-h-screen overflow-hidden p-4">
                 <div className="p-6 sm:p-8 rounded-lg shadow-2xl text-white max-w-full w-full sm:max-w-lg md:max-w-xl bg-[#202020] relative overflow-y-auto">
-                    {/* Background Decorations */}
                     <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-b from-[#131212] to-transparent rounded-lg opacity-10 pointer-events-none"></div>
-
-                    {/* Profile Section */}
                     <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
                         <div className="relative">
                             <img
@@ -111,7 +106,6 @@ export default function Page(prop: lanyardprops): JSX.Element {
                             ))}
                     </div>
 
-                    {/* Spotify Integration */}
                     {lanyard?.listening_to_spotify && (
                         <div className="mt-3">
                             <SpotifyIntegration />

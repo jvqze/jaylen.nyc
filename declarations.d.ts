@@ -1,14 +1,14 @@
 import NextAuth from "next-auth";
 
 declare module "next-auth" {
-  interface Session {
-    user: {
-      name?: string;
-      email?: string;
-      image?: string;
-      discordUserId?: string;
-    };
-  }
+    interface Session {
+        user: {
+            name?: string;
+            email?: string;
+            image?: string;
+            discordUserId?: string;
+        };
+    }
 }
 
-declare module 'formidable';
+declare module "formidable";

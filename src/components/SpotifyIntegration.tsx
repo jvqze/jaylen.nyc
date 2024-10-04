@@ -74,24 +74,24 @@ const SpotifyIntegration: React.FC = () => {
     if (!spotifyData) return null;
 
     return (
-        <div className="flex flex-wrap md:flex-nowrap items-center rounded-lg bg-neutral-900 p-3 sm:p-4 space-x-3 sm:space-x-4 w-full mx-auto mt-3">
+        <div className="mx-auto mt-3 flex w-full flex-wrap items-center space-x-3 rounded-lg bg-neutral-900 p-3 sm:space-x-4 sm:p-4 md:flex-nowrap">
             <img
                 alt={spotifyData.song}
                 src={spotifyData.album_art_url}
-                className="h-12 w-12 sm:h-16 sm:w-16 rounded-md object-cover"
+                className="h-12 w-12 rounded-md object-cover sm:h-16 sm:w-16"
                 draggable={false}
             />
-            <div className="flex-1 mt-2 md:mt-0">
-                <li className="flex items-center space-x-1 text-xs sm:text-sm font-semibold text-[#1ed760]">
+            <div className="mt-2 flex-1 md:mt-0">
+                <li className="flex items-center space-x-1 text-xs font-semibold text-[#1ed760] sm:text-sm">
                     <span>
                         <SiSpotify className="h-3 w-3 sm:h-4 sm:w-4" />
                     </span>
                     <span>Listening to...</span>
                 </li>
-                <h1 className="truncate text-xs sm:text-sm font-bold opacity-90 mt-1">
+                <h1 className="mt-1 truncate text-xs font-bold opacity-90 sm:text-sm">
                     {spotifyData.song}
                 </h1>
-                <span className="text-xs sm:text-sm opacity-80">{spotifyData.artist}</span>
+                <span className="text-xs opacity-80 sm:text-sm">{spotifyData.artist}</span>
             </div>
         </div>
     );

@@ -1,7 +1,8 @@
-import Head from "next/head";
-import { motion } from "framer-motion";
-import type { NextPage } from "next";
 import { HeartIcon } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
+import Head from "next/head";
+
+import type { NextPage } from "next";
 
 export default function Friends(): JSX.Element {
     return (

@@ -1,6 +1,6 @@
-import React from 'react';
-import { sendLog } from '../util/logger';
+import React from "react";
 
+import { sendLog } from "../util/logger";
 
 interface Props {
     children: React.ReactNode;
@@ -22,7 +22,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 
     componentDidCatch(error: Error, info: React.ErrorInfo) {
         // Log the error to the server
-        sendLog(`Client-side error: ${error.message}`, 'error');
+        sendLog(`Client-side error: ${error.message}`, "error");
     }
 
     render() {

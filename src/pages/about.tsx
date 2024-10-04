@@ -175,26 +175,26 @@ export default function Page(prop: lanyardprops): JSX.Element {
                             </div>
                         </div>
                     </div>
-                    <div className="space-y-4 mt-4">
-                    <h2 className="text-2xl font-extrabold sm:text-3xl">Tools I Use</h2>
-                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                        {[
-                            { icon: SiSpotify, text: "Spotify" },
-                            { icon: SiAdobefonts, text: "Adobe Fonts" },
-                            { icon: SiVisualstudiocode, text: "Visual Studio Code" },
-                            { icon: SiGithub, text: "Github" },
-                            { icon: SiGit, text: "Git" },
-                            { icon: SiJavascript, text: "JavaScript" },
-                            { icon: SiHtml5, text: "HTML" },
-                            { icon: SiCss3, text: "CSS" },
-                            { icon: SiTailwindcss, text: "TailwindCSS" },
-                            { icon: SiNextdotjs, text: "Next.js" },
-                            { icon: SiTypescript, text: "TypeScript" },
-                        ].map((item, index) => (
-                            <TechIcon key={index} icon={item.icon} text={item.text} />
-                        ))}
+                    <div className="mt-4 space-y-4">
+                        <h2 className="text-2xl font-extrabold sm:text-3xl">Tools I Use</h2>
+                        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                            {[
+                                { icon: SiSpotify, text: "Spotify" },
+                                { icon: SiAdobefonts, text: "Adobe Fonts" },
+                                { icon: SiVisualstudiocode, text: "Visual Studio Code" },
+                                { icon: SiGithub, text: "Github" },
+                                { icon: SiGit, text: "Git" },
+                                { icon: SiJavascript, text: "JavaScript" },
+                                { icon: SiHtml5, text: "HTML" },
+                                { icon: SiCss3, text: "CSS" },
+                                { icon: SiTailwindcss, text: "TailwindCSS" },
+                                { icon: SiNextdotjs, text: "Next.js" },
+                                { icon: SiTypescript, text: "TypeScript" },
+                            ].map((item, index) => (
+                                <TechIcon key={index} icon={item.icon} text={item.text} />
+                            ))}
+                        </div>
                     </div>
-                </div>
                 </div>
             </main>
         </div>

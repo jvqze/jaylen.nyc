@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { Data as LanyardData, useLanyard } from "use-lanyard";  
 import SpotifyIntegration from "../components/SpotifyIntegration";
-import { Data as LanyardData, useLanyard } from "use-lanyard";
 
 const DISCORD_ID = "1203092268672753785";
-
 const statusMap = {
     online: "bg-green-500",
     idle: "bg-yellow-500",
@@ -33,7 +32,7 @@ export default function Page(prop: lanyardprops): JSX.Element {
     const statusText = statusTextMap[status];
 
     const activities = lanyard?.activities || [];
-    const customStatusActivity = activities.find((activity) => activity.type === 4);
+    const customStatusActivity = activities.find(activity => activity.type === 4);
 
     return (
         <div className="overflow-hidden">
@@ -41,25 +40,27 @@ export default function Page(prop: lanyardprops): JSX.Element {
                 <title>jaylen.nyc</title>
             </Head>
 
-            <main className="flex items-center justify-center min-h-screen overflow-hidden p-4">
-                <div className="p-6 sm:p-8 rounded-lg shadow-2xl text-white max-w-full w-full sm:max-w-lg md:max-w-xl bg-[#202020] relative overflow-y-auto">
-                    <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-b from-[#131212] to-transparent rounded-lg opacity-10 pointer-events-none"></div>
-                    <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+            <main className="flex min-h-screen items-center justify-center overflow-hidden p-4">
+                <div className="relative w-full max-w-full overflow-y-auto rounded-lg bg-[#202020] p-6 text-white shadow-2xl sm:max-w-lg sm:p-8 md:max-w-xl">
+                    <div className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-b from-[#131212] to-transparent opacity-10"></div>
+                    <div className="flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-4 sm:space-y-0">
                         <div className="relative">
                             <img
-                                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-gray-500"
+                                className="h-20 w-20 rounded-full border-2 border-gray-500 sm:h-24 sm:w-24"
                                 src={`https://cdn.discordapp.com/avatars/${lanyard?.discord_user.id}/${lanyard?.discord_user.avatar}.png`}
                                 alt="Profile Avatar"
                             />
                             <span
-                                className={`absolute bottom-1 right-1 w-5 h-5 sm:w-6 sm:h-6 border-2 border-[#242121] rounded-full ${statusColor}`}
+                                className={`absolute bottom-1 right-1 h-5 w-5 rounded-full border-2 border-[#242121] sm:h-6 sm:w-6 ${statusColor}`}
                             ></span>
                         </div>
                         <div className="text-center sm:text-left">
-                            <h2 className="text-lg sm:text-2xl font-semibold">{lanyard?.discord_user.global_name}</h2>
-                            <p className="text-gray-400 text-sm sm:text-base">{statusText}</p>
+                            <h2 className="text-lg font-semibold sm:text-2xl">
+                                {lanyard?.discord_user.global_name}
+                            </h2>
+                            <p className="text-sm text-gray-400 sm:text-base">{statusText}</p>
                             {customStatusActivity && (
-                                <p className="text-sm sm:text-md text-gray-300 mt-1">
+                                <p className="sm:text-md mt-1 text-sm text-gray-300">
                                     {customStatusActivity.state}
                                 </p>
                             )}
@@ -68,36 +69,38 @@ export default function Page(prop: lanyardprops): JSX.Element {
 
                     <div className="space-y-4">
                         {activities
-                            .filter((activity) => activity.type !== 4)
+                            .filter(activity => activity.type !== 4)
                             .filter(
-                                (activity) =>
+                                activity =>
                                     activity.name !== "Spotify" &&
-                                    activity.application_id?.toString() !== "spotify"
+                                    activity.application_id?.toString() !== "spotify",
                             )
-                            .map((activity) => (
+                            .map(activity => (
                                 <motion.div
                                     key={activity.id}
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.3 }}
-                                    className="p-3 sm:p-4 bg-gray-800 rounded-md flex items-center space-x-3 sm:space-x-4"
+                                    className="mt-4 flex items-center space-x-3 rounded-md bg-gray-800 p-3 sm:space-x-4 sm:p-4"
                                 >
                                     {activity.assets?.large_image && (
                                         <img
-                                            className="h-10 w-10 sm:h-12 sm:w-12 rounded-md"
-                                            src={`https://${activity.assets.small_image.split('/https/')[1]}`}
+                                            className="h-10 w-10 rounded-md sm:h-12 sm:w-12"
+                                            src={`https://${activity.assets.small_image.split("/https/")[1]}`}
                                             alt={activity.name}
                                         />
                                     )}
                                     <div>
-                                        <p className="font-semibold text-base sm:text-lg">{activity.name}</p>
+                                        <p className="text-base font-semibold sm:text-lg">
+                                            {activity.name}
+                                        </p>
                                         {activity.details && (
-                                            <p className="text-xs sm:text-sm text-gray-400">
+                                            <p className="text-xs text-gray-400 sm:text-sm">
                                                 {activity.details}
                                             </p>
                                         )}
                                         {activity.state && (
-                                            <p className="text-xs sm:text-sm text-gray-400">
+                                            <p className="text-xs text-gray-400 sm:text-sm">
                                                 {activity.state}
                                             </p>
                                         )}

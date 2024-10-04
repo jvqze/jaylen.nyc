@@ -12,7 +12,7 @@ export const ThemeSwitcher = () => {
 
     useEffect(() => {
         setMounted(true);
-        console.log('Mounted state:', mounted);
+        console.log("Mounted state:", mounted);
     }, [mounted]);
 
     if (!mounted) return null;

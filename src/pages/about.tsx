@@ -1,8 +1,32 @@
 import { CloudArrowUpIcon, UserGroupIcon } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
 import Head from "next/head";
-import { useState } from "react";
+import {
+    SiAdobefonts,
+    SiCss3,
+    SiGit,
+    SiGithub,
+    SiHtml5,
+    SiJavascript,
+    SiNextdotjs,
+    SiSpotify,
+    SiTailwindcss,
+    SiTypescript,
+    SiVisualstudiocode,
+} from "react-icons/si";
+import { Data as LanyardData, useLanyard } from "use-lanyard";
 
-export default function Page(): JSX.Element {
+const DISCORD_ID = "1203092268672753785";
+
+type lanyardprops = {
+    lanyard: LanyardData;
+};
+
+export default function Page(prop: lanyardprops): JSX.Element {
+    const { data: lanyard } = useLanyard(DISCORD_ID, {
+        initialData: prop.lanyard,
+    });
+
     return (
         <div>
             <Head>
@@ -26,6 +50,30 @@ export default function Page(): JSX.Element {
                                         coding since I was 7 years old. That is a somewhat a very
                                         young age but coding was something I'm proud of wanting to
                                         do!
+                                    </p>
+                                    <p className="mt-4 text-xl">
+                                        Currently living at{" "}
+                                        <span className="font-extrabold text-[#d2bfff]">
+                                            {lanyard?.kv.location}
+                                        </span>
+                                        . I'm an aspiring Software Developer and currently
+                                        learning/coding{" "}
+                                        <span className="font-extrabold">
+                                            <span className="text-[#4B8BBE]">Pyt</span>
+                                            <span className="text-[#FFD43B]">hon</span>
+                                        </span>
+                                        ,{" "}
+                                        <span className="font-extrabold text-[#e34c26]">HTML</span>,{" "}
+                                        <span className="font-extrabold text-[#F0DB4F]">
+                                            Javascript
+                                        </span>
+                                        ,{" "}
+                                        <span className="font-extrabold text-[#ADD8E6]">
+                                            C & C++
+                                        </span>{" "}
+                                        & more! On my free time I usually do work or try to learn
+                                        coding languages. I'm still rusty at coding but I'm trying
+                                        my best to understand everything.
                                     </p>
                                 </div>
                             </div>
@@ -116,14 +164,51 @@ export default function Page(): JSX.Element {
                                         Why did I make this? 🤔
                                     </h2>
                                     <p className="mt-2">
-                                        This website was originally made just to see how I would do with React and Typescript. Now, it's something I'm proficient and I can proudly say that. Thanks to my Coding Classes when I was young and now I can make more personal/business projects for now! P.S. This website got rebranded, for those that saw it before 😉 
+                                        This website was originally made just to see how I would do
+                                        with React and Typescript. Now, it's something I'm
+                                        proficient and I can proudly say that. Thanks to my Coding
+                                        Classes when I was young and now I can make more
+                                        personal/business projects for now! P.S. This website got
+                                        rebranded, for those that saw it before 😉
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div className="space-y-4 mt-4">
+                    <h2 className="text-2xl font-extrabold sm:text-3xl">Tools I Use</h2>
+                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                        {[
+                            { icon: SiSpotify, text: "Spotify" },
+                            { icon: SiAdobefonts, text: "Adobe Fonts" },
+                            { icon: SiVisualstudiocode, text: "Visual Studio Code" },
+                            { icon: SiGithub, text: "Github" },
+                            { icon: SiGit, text: "Git" },
+                            { icon: SiJavascript, text: "JavaScript" },
+                            { icon: SiHtml5, text: "HTML" },
+                            { icon: SiCss3, text: "CSS" },
+                            { icon: SiTailwindcss, text: "TailwindCSS" },
+                            { icon: SiNextdotjs, text: "Next.js" },
+                            { icon: SiTypescript, text: "TypeScript" },
+                        ].map((item, index) => (
+                            <TechIcon key={index} icon={item.icon} text={item.text} />
+                        ))}
+                    </div>
+                </div>
                 </div>
             </main>
         </div>
+    );
+}
+
+function TechIcon({ icon: Icon, text }: { icon: any; text: string }) {
+    return (
+        <motion.div
+            whileHover={{ scale: 1.1 }}
+            className="flex flex-col items-center space-y-2 rounded-lg bg-neutral-100 p-4 shadow-md dark:bg-neutral-800"
+        >
+            <Icon className="text-4xl text-gray-700 dark:text-gray-200" />
+            <span className="font-bold text-gray-700 dark:text-gray-200">{text}</span>
+        </motion.div>
     );
 }

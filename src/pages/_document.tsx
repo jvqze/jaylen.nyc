@@ -5,10 +5,16 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 export default class ADocument extends Document {
     render() {
         return (
-            <Html lang="en" className="antialiased dark:bg-ThemeDark dark:text-white overflow-x-hidden overscroll-none min-h-screen w-full">
+            <Html
+                lang="en"
+                className="min-h-screen w-full overflow-x-hidden overscroll-none antialiased dark:bg-ThemeDark dark:text-white"
+            >
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, viewport-fit=cover"
+                ></meta>
                 <Head>
                     <meta charSet="utf-8" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></meta>
                     <link
                         rel="icon"
                         type="image/png"
@@ -16,6 +22,7 @@ export default class ADocument extends Document {
                     />
                     <meta name="theme-color" content="#ffffff" />
                     <meta name="description" content="Welcome to my website!" />
+
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link

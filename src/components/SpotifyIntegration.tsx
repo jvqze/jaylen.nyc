@@ -74,14 +74,14 @@ const SpotifyIntegration: React.FC = () => {
     if (!spotifyData) return null;
 
     return (
-        <div className="flex items-center rounded-lg bg-neutral-900 p-2 md:p-4 space-x-3 w-full mx-auto">
+        <div className="flex flex-wrap md:flex-nowrap items-center rounded-lg bg-neutral-900 p-3 sm:p-4 space-x-3 sm:space-x-4 w-full mx-auto mt-3">
             <img
                 alt={spotifyData.song}
                 src={spotifyData.album_art_url}
                 className="h-12 w-12 sm:h-16 sm:w-16 rounded-md object-cover"
                 draggable={false}
             />
-            <div className="flex-1">
+            <div className="flex-1 mt-2 md:mt-0">
                 <li className="flex items-center space-x-1 text-xs sm:text-sm font-semibold text-[#1ed760]">
                     <span>
                         <SiSpotify className="h-3 w-3 sm:h-4 sm:w-4" />

@@ -1,19 +1,5 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { useState } from "react";
-import {
-    SiAdobefonts,
-    SiCss3,
-    SiGit,
-    SiGithub,
-    SiHtml5,
-    SiJavascript,
-    SiNextdotjs,
-    SiSpotify,
-    SiTailwindcss,
-    SiTypescript,
-    SiVisualstudiocode,
-} from "react-icons/si";
 import SpotifyIntegration from "../components/SpotifyIntegration";
 import { Data as LanyardData, useLanyard } from "use-lanyard";
 
@@ -27,10 +13,10 @@ const statusMap = {
 };
 
 const statusTextMap = {
-    online: "online",
-    idle: "idle",
-    dnd: "DND",
-    offline: "offline",
+    online: "Online",
+    idle: "Idle",
+    dnd: "Do Not Disturb",
+    offline: "Offline",
 };
 
 type lanyardprops = {
@@ -46,143 +32,93 @@ export default function Page(prop: lanyardprops): JSX.Element {
     const statusColor = statusMap[status];
     const statusText = statusTextMap[status];
 
+    // Extract activities and find the custom status activity
+    const activities = lanyard?.activities || [];
+    const customStatusActivity = activities.find((activity) => activity.type === 4);
+
     return (
-        <div>
+        <div className="overflow-hidden">
             <Head>
                 <title>jaylen.nyc</title>
             </Head>
 
-            <main>
-                <div>
-                    <main className="mx-auto max-w-3xl space-y-4 md:py-24">
-                        {/* full site */}
-                        <div className="space-y-2">
+            {/* Centering the profile card */}
+            <main className="flex items-center justify-center min-h-screen overflow-hidden p-4">
+                <div className="p-6 sm:p-8 rounded-lg shadow-2xl text-white max-w-full w-full sm:max-w-lg md:max-w-xl bg-[#202020] relative overflow-y-auto">
+                    {/* Background Decorations */}
+                    <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-b from-[#131212] to-transparent rounded-lg opacity-10 pointer-events-none"></div>
+
+                    {/* Profile Section */}
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+                        <div className="relative">
                             <img
-                                className="mb-4 block rounded-xl shadow-xl shadow-neutral-300 dark:shadow-none"
-                                src="https://cdn.jaylen.nyc/r/opera_0RmFO9ItHS.png"
-                                alt="a banner i made in photoshop :D"
-                                height={"400"}
-                                width={"1000"}
+                                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-gray-500"
+                                src={`https://cdn.discordapp.com/avatars/${lanyard?.discord_user.id}/${lanyard?.discord_user.avatar}.png`}
+                                alt="Profile Avatar"
                             />
-
-                            <ul>
-                                <div id="username" className="flex items-center gap-3">
-                                    <img
-                                        className="h-20 w-20 rounded-2xl shadow-lg"
-                                        src={`https://cdn.discordapp.com/avatars/${lanyard?.discord_user.id}/${lanyard?.discord_user.avatar}`}
-                                        alt="my avatar :3"
-                                        draggable={false}
-                                    />
-                                    <div className="mt-10 inline-flex place-items-center gap-3 rounded-full bg-neutral-200 px-4 py-2 dark:bg-neutral-800">
-                                        <span
-                                            className={`inline-block h-4 w-4 rounded-full ${statusColor}`}
-                                        ></span>
-                                        {statusText}
-                                    </div>
-                                    <SpotifyIntegration />
-                                </div>
-                            </ul>
+                            <span
+                                className={`absolute bottom-1 right-1 w-5 h-5 sm:w-6 sm:h-6 border-2 border-[#242121] rounded-full ${statusColor}`}
+                            ></span>
                         </div>
-
-                        <section className="space-y-6">
-                            {/* about moi but edited :) */}
-                            <div className="rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4 text-white shadow-lg">
-                                <h2 className="text-xl font-bold">
-                                    Hey, I'm Jaylen!{" "}
-                                    <span className="text-sm font-extrabold text-[#ffffffa4]">
-                                        (he/him)
-                                    </span>
-                                </h2>
-                                <p>
-                                    Currently living at{" "}
-                                    <span className="font-extrabold text-[#d2bfff]">
-                                        {lanyard?.kv.location}
-                                    </span>
-                                    . I'm an aspiring Software Developer and currently
-                                    learning/coding{" "}
-                                    <span className="font-extrabold">
-                                        <span className="text-[#4B8BBE]">Pyt</span>
-                                        <span className="text-[#FFD43B]">hon</span>
-                                    </span>
-                                    , <span className="font-extrabold text-[#e34c26]">HTML</span>,{" "}
-                                    <span className="font-extrabold text-[#F0DB4F]">
-                                        Javascript
-                                    </span>
-                                    , <span className="font-extrabold text-[#ADD8E6]">C & C++</span>{" "}
-                                    & more! On my free time I usually do work or try to learn coding
-                                    languages. I'm still rusty at coding but I'm trying my best to
-                                    understand everything.
+                        <div className="text-center sm:text-left">
+                            <h2 className="text-lg sm:text-2xl font-semibold">{lanyard?.discord_user.global_name}</h2>
+                            <p className="text-gray-400 text-sm sm:text-base">{statusText}</p>
+                            {customStatusActivity && (
+                                <p className="text-sm sm:text-md text-gray-300 mt-1">
+                                    {customStatusActivity.state}
                                 </p>
-                            </div>
+                            )}
+                        </div>
+                    </div>
 
-                            {/* coding bar cuz why not and it looks awwwwwsome */}
-                            <div className="space-y-4">
-                                <h2 className="text-center text-2xl font-extrabold">
-                                    Coding Skills
-                                </h2>
-                                <div className="space-y-2">
-                                    <SkillProgressBar skill="Python" percentage={95} />
-                                    <SkillProgressBar skill="C# & C++" percentage={78} />
-                                    <SkillProgressBar skill="JavaScript" percentage={87} />
-                                    <SkillProgressBar skill="HTML & CSS" percentage={97} />
-                                </div>
-                            </div>
+                    <div className="space-y-4">
+                        {activities
+                            .filter((activity) => activity.type !== 4)
+                            .filter(
+                                (activity) =>
+                                    activity.name !== "Spotify" &&
+                                    activity.application_id?.toString() !== "spotify"
+                            )
+                            .map((activity) => (
+                                <motion.div
+                                    key={activity.id}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="p-3 sm:p-4 bg-gray-800 rounded-md flex items-center space-x-3 sm:space-x-4"
+                                >
+                                    {activity.assets?.large_image && (
+                                        <img
+                                            className="h-10 w-10 sm:h-12 sm:w-12 rounded-md"
+                                            src={`https://${activity.assets.small_image.split('/https/')[1]}`}
+                                            alt={activity.name}
+                                        />
+                                    )}
+                                    <div>
+                                        <p className="font-semibold text-base sm:text-lg">{activity.name}</p>
+                                        {activity.details && (
+                                            <p className="text-xs sm:text-sm text-gray-400">
+                                                {activity.details}
+                                            </p>
+                                        )}
+                                        {activity.state && (
+                                            <p className="text-xs sm:text-sm text-gray-400">
+                                                {activity.state}
+                                            </p>
+                                        )}
+                                    </div>
+                                </motion.div>
+                            ))}
+                    </div>
 
-                            {/* tech section :D */}
-                            <div className="space-y-4">
-                                <h2 className="text-2xl font-extrabold sm:text-3xl">Tools I Use</h2>
-                                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                                    {[
-                                        { icon: SiSpotify, text: "Spotify" },
-                                        { icon: SiAdobefonts, text: "Adobe Fonts" },
-                                        { icon: SiVisualstudiocode, text: "Visual Studio Code" },
-                                        { icon: SiGithub, text: "Github" },
-                                        { icon: SiGit, text: "Git" },
-                                        { icon: SiJavascript, text: "JavaScript" },
-                                        { icon: SiHtml5, text: "HTML" },
-                                        { icon: SiCss3, text: "CSS" },
-                                        { icon: SiTailwindcss, text: "TailwindCSS" },
-                                        { icon: SiNextdotjs, text: "Next.js" },
-                                        { icon: SiTypescript, text: "TypeScript" },
-                                    ].map((item, index) => (
-                                        <TechIcon key={index} icon={item.icon} text={item.text} />
-                                    ))}
-                                </div>
-                            </div>
-                        </section>
-                    </main>
+                    {/* Spotify Integration */}
+                    {lanyard?.listening_to_spotify && (
+                        <div className="mt-3">
+                            <SpotifyIntegration />
+                        </div>
+                    )}
                 </div>
             </main>
         </div>
-    );
-}
-
-function SkillProgressBar({ skill, percentage }: { skill: string; percentage: number }) {
-    return (
-        <div>
-            <div className="flex justify-between">
-                <span className="font-bold">{skill}</span>
-            </div>
-            <div className="h-4 w-full rounded-full bg-gray-300">
-                <motion.div
-                    className="h-4 rounded-full bg-blue-500"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${percentage}%` }}
-                    transition={{ duration: 1.5 }}
-                />
-            </div>
-        </div>
-    );
-}
-
-function TechIcon({ icon: Icon, text }: { icon: any; text: string }) {
-    return (
-        <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="flex flex-col items-center space-y-2 rounded-lg bg-neutral-100 p-4 shadow-md dark:bg-neutral-800"
-        >
-            <Icon className="text-4xl text-gray-700 dark:text-gray-200" />
-            <span className="font-bold text-gray-700 dark:text-gray-200">{text}</span>
-        </motion.div>
     );
 }

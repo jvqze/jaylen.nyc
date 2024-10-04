@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { dayjs } from "../util/dayjs";
 
 const now = () => dayjs().tz();
@@ -28,7 +27,7 @@ const Time = () => {
             {date.format("MMMM Do, YYYY • h:mm:ss A")}{" "}
             {currentEvent && (
                 <span className="font-bold">
-                    {" "}
+                    {"- "}
                     {
                         {
                             christmas: "Merry Christmas!",

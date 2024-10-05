@@ -1,6 +1,7 @@
 import { HeartIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import ethanspecialphoto from "../../public/img/ethan.svg";
 
 import type { NextPage } from "next";
 
@@ -31,6 +32,7 @@ export default function Friends(): JSX.Element {
                                         { icon: HeartIcon, text: "jeanine" },
                                         { icon: HeartIcon, text: "sadurn" },
                                         { icon: HeartIcon, text: "ahmad" },
+                                        { icon: ethanspecialphoto, text: "ethan" },
                                     ].map((item, index) => (
                                         <TechIcon key={index} icon={item.icon} text={item.text} />
                                     ))}
@@ -44,13 +46,15 @@ export default function Friends(): JSX.Element {
     );
 }
 
+// https://cdn.jaylen.nyc/opera_c3AoNj6yan.png
+
 function TechIcon({ icon: Icon, text }: { icon: any; text: string }) {
     return (
         <motion.div
             whileHover={{ scale: 1.1 }}
             className="flex flex-col items-center space-y-2 rounded-lg bg-neutral-100 p-4 shadow-md dark:bg-neutral-800"
         >
-            <Icon className="text-4xl text-gray-700 dark:text-gray-200" />
+            <Icon className="rounded-lg text-4xl text-gray-700 dark:text-gray-200" />
             <span className="font-bold text-gray-700 dark:text-gray-200">{text}</span>
         </motion.div>
     );

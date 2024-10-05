@@ -24,7 +24,7 @@ const Time = () => {
     }, []);
 
     return (
-        <p className="hidden md:block">
+        <p>
             {date.format("MMMM Do, YYYY • h:mm:ss A")}{" "}
             {currentEvent && (
                 <span className="font-bold">

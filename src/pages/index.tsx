@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { Data as LanyardData, useLanyard } from "use-lanyard";  
+import { Data as LanyardData, useLanyard } from "use-lanyard";
+
 import SpotifyIntegration from "../components/SpotifyIntegration";
 
 const DISCORD_ID = "1203092268672753785";
@@ -41,7 +42,7 @@ export default function Page(prop: lanyardprops): JSX.Element {
             </Head>
 
             <main className="flex min-h-screen items-center justify-center overflow-hidden p-4">
-                <div className="relative w-full max-w-full overflow-y-auto rounded-lg bg-[#202020] p-6 text-white shadow-2xl sm:max-w-lg sm:p-8 md:max-w-xl">
+                <div className="relative w-full max-w-full overflow-y-auto rounded-lg bg-[#202020] p-6 shadow-2xl sm:max-w-lg sm:p-8 md:max-w-xl">
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-b from-[#131212] to-transparent opacity-10"></div>
                     <div className="flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-4 sm:space-y-0">
                         <div className="relative">
@@ -55,7 +56,7 @@ export default function Page(prop: lanyardprops): JSX.Element {
                             ></span>
                         </div>
                         <div className="text-center sm:text-left">
-                            <h2 className="text-lg font-semibold sm:text-2xl">
+                            <h2 className="text-lg font-semibold text-white sm:text-2xl">
                                 {lanyard?.discord_user.global_name}
                             </h2>
                             <p className="text-sm text-gray-400 sm:text-base">{statusText}</p>
@@ -91,7 +92,7 @@ export default function Page(prop: lanyardprops): JSX.Element {
                                         />
                                     )}
                                     <div>
-                                        <p className="text-base font-semibold sm:text-lg">
+                                        <p className="text-base font-semibold text-white sm:text-lg">
                                             {activity.name}
                                         </p>
                                         {activity.details && (

@@ -1,6 +1,7 @@
 import { HeartIcon } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 import Head from "next/head";
+
 import ethanspecialphoto from "../../public/img/ethan.svg";
 
 import type { NextPage } from "next";
@@ -9,7 +10,7 @@ export default function Friends(): JSX.Element {
     return (
         <div>
             <Head>
-                <title>jaylen.lol</title>
+                <title>jaylen.nyc</title>
             </Head>
 
             <main>

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
 import { Data as LanyardData, useLanyard } from "use-lanyard";
-
 import SpotifyIntegration from "../components/SpotifyIntegration";
+import { FaGithub, FaEnvelope, FaGamepad, FaImage } from "react-icons/fa"; // Import icons for connections
 
 const DISCORD_ID = "1203092268672753785";
 const statusMap = {
@@ -33,7 +33,7 @@ export default function Page(prop: lanyardprops): JSX.Element {
     const statusText = statusTextMap[status];
 
     const activities = lanyard?.activities || [];
-    const customStatusActivity = activities.find(activity => activity.type === 4);
+    const customStatusActivity = activities.find((activity) => activity.type === 4);
 
     return (
         <div className="overflow-hidden">
@@ -41,7 +41,8 @@ export default function Page(prop: lanyardprops): JSX.Element {
                 <title>jaylen.nyc</title>
             </Head>
 
-            <main className="flex min-h-screen items-center justify-center overflow-hidden p-4">
+            <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden p-4">
+                {/* Profile Card */}
                 <div className="relative w-full max-w-full overflow-y-auto rounded-lg bg-[#202020] p-6 shadow-2xl sm:max-w-lg sm:p-8 md:max-w-xl">
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-b from-[#131212] to-transparent opacity-10"></div>
                     <div className="flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-4 sm:space-y-0">
@@ -70,13 +71,13 @@ export default function Page(prop: lanyardprops): JSX.Element {
 
                     <div className="space-y-4">
                         {activities
-                            .filter(activity => activity.type !== 4)
+                            .filter((activity) => activity.type !== 4)
                             .filter(
-                                activity =>
+                                (activity) =>
                                     activity.name !== "Spotify" &&
-                                    activity.application_id?.toString() !== "spotify",
+                                    activity.application_id?.toString() !== "spotify"
                             )
-                            .map(activity => (
+                            .map((activity) => (
                                 <motion.div
                                     key={activity.id}
                                     initial={{ opacity: 0, y: 10 }}
@@ -115,6 +116,43 @@ export default function Page(prop: lanyardprops): JSX.Element {
                             <SpotifyIntegration />
                         </div>
                     )}
+                </div>
+
+                <div className="mt-4 grid w-full max-w-xl grid-cols-2 gap-4 sm:grid-cols-4">
+                    <a
+                        href="https://github.com/jvqze"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
+                    >
+                        <FaGithub className="h-6 w-6 text-white" />
+                        <span className="text-sm text-white">GitHub</span>
+                    </a>
+                    <a
+                        href="https://www.roblox.com/users/379649306/profile"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
+                    >
+                        <FaGamepad className="h-6 w-6 text-white" />
+                        <span className="text-sm text-white">Roblox</span>
+                    </a>
+                    <a
+                        href="mailto:me@jaylen.nyc"
+                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
+                    >
+                        <FaEnvelope className="h-6 w-6 text-white" />
+                        <span className="text-sm text-white">Email</span>
+                    </a>
+                    <a
+                        href="https://cdn.jaylen.nyc/r/secret-omg-stop-please-dont-click.gif"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
+                    >
+                        <FaImage className="h-6 w-6 text-white" />
+                        <span className="text-sm text-white">Funny Image</span>
+                    </a>
                 </div>
             </main>
         </div>

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { FaEnvelope, FaGamepad, FaGithub, FaImage } from "react-icons/fa"; // Import icons for connections
 import { Data as LanyardData, useLanyard } from "use-lanyard";
+
 import SpotifyIntegration from "../components/SpotifyIntegration";
-import { FaGithub, FaEnvelope, FaGamepad, FaImage } from "react-icons/fa"; // Import icons for connections
 
 const DISCORD_ID = "1203092268672753785";
 const statusMap = {
@@ -33,7 +34,7 @@ export default function Page(prop: lanyardprops): JSX.Element {
     const statusText = statusTextMap[status];
 
     const activities = lanyard?.activities || [];
-    const customStatusActivity = activities.find((activity) => activity.type === 4);
+    const customStatusActivity = activities.find(activity => activity.type === 4);
 
     return (
         <div className="overflow-hidden">
@@ -71,13 +72,13 @@ export default function Page(prop: lanyardprops): JSX.Element {
 
                     <div className="space-y-4">
                         {activities
-                            .filter((activity) => activity.type !== 4)
+                            .filter(activity => activity.type !== 4)
                             .filter(
-                                (activity) =>
+                                activity =>
                                     activity.name !== "Spotify" &&
-                                    activity.application_id?.toString() !== "spotify"
+                                    activity.application_id?.toString() !== "spotify",
                             )
-                            .map((activity) => (
+                            .map(activity => (
                                 <motion.div
                                     key={activity.id}
                                     initial={{ opacity: 0, y: 10 }}

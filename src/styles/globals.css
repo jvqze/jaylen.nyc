@@ -1,3 +1,13 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+:root {
+    --background: #111212;
+    --foreground: #ffffff;
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+}

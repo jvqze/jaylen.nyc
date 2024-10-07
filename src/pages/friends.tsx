@@ -53,10 +53,10 @@ function TechIcon({ icon: Icon, text }: { icon: any; text: string }) {
     return (
         <motion.div
             whileHover={{ scale: 1.1 }}
-            className="flex flex-col items-center space-y-2 rounded-lg bg-neutral-100 p-4 shadow-md dark:bg-neutral-800"
+            className="flex flex-col items-center space-y-2 rounded-lg p-4 shadow-md bg-neutral-800"
         >
-            <Icon className="rounded-lg text-4xl text-gray-700 dark:text-gray-200" />
-            <span className="font-bold text-gray-700 dark:text-gray-200">{text}</span>
+            <Icon className="rounded-lg text-4xl text-gray-200" />
+            <span className="font-bold text-gray-200">{text}</span>
         </motion.div>
     );
 }

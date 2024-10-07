@@ -12,14 +12,12 @@ export const authOptions: NextAuthOptions = {
         async jwt({ token, account }) {
             if (account) {
                 console.log("Account Data", account);
-                token.discordUserId = account.providerAccountId;
+                token.email = account.providerAccountId;
             }
             return token;
         },
         async session({ session, token }) {
-            console.log("Token in Session Callback", token);
-            session.user.discordUserId = token.discordUserId as string;
-            console.log("Session after modification", session);
+            session.user.email = token.email as string;
             return session;
         },
     },

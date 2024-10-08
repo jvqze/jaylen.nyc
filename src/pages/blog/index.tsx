@@ -24,7 +24,7 @@ export default function BlogIndex({ allPostsData }: BlogIndexProps) {
                     <li
                         key={id}
                         data-aos="fade-up"
-                        className="transform rounded-lg border p-4 shadow-md transition-all duration-500 hover:scale-105 border-gray-700 hover:bg-gray-800"
+                        className="transform rounded-lg border border-gray-700 p-4 shadow-md transition-all duration-500 hover:scale-105 hover:bg-gray-800"
                     >
                         <Link
                             href={`/blog/${id}`}

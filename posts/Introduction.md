@@ -1,7 +1,7 @@
 ---
 title: "Hello World!"
 date: "2024-10-07"
-time: "22:30" 
+time: "22:30"
 ---
 
 Welcome to the very first post here at my blog on [jaylen.nyc](https://jaylen.nyc). I'm Jaylen, and I can't wait to share this journey with you all! Here, you'll find a collection of all the fun things that inspire me, the awesome projects I'm working on, and maybe even some goofy, lighthearted posts just for the laughs.

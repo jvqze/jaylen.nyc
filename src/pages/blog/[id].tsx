@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import { getAllPostIds, getPostData } from "../../lib/posts";
 
 type BlogPostProps = {
@@ -21,7 +22,7 @@ const formatDateTime = (date: string, time?: string) => {
         hour12: true,
     };
     const formattedDateTime = new Intl.DateTimeFormat("en-US", options).format(
-        new Date(dateTimeString)
+        new Date(dateTimeString),
     );
     return formattedDateTime;
 };
@@ -34,7 +35,7 @@ export default function BlogPost({ postData }: BlogPostProps) {
             <h1 className="mb-4 text-4xl font-bold text-white">{postData.title}</h1>
             <div className="mb-6 text-gray-400">{formattedDateTime}</div>
             <div
-                className="prose-headings:text-white prose-a:text-blue-400 prose-a:underline prose-p:text-white max-w-none prose"
+                className="prose max-w-none prose-headings:text-white prose-p:text-white prose-a:text-blue-400 prose-a:underline"
                 dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
             />
         </div>

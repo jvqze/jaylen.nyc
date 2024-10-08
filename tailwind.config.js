@@ -11,7 +11,6 @@ module.exports = {
         },
         extend: {
             colors: {
-                Blurple: "#5865F2",
                 ThemeDark: "#111212",
             },
             animation: {
@@ -25,5 +24,5 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/typography')],
 };

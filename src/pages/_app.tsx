@@ -50,6 +50,14 @@ export default function App({
                                         friends
                                     </a>
                                 </li>
+                                <li className="shrink-0">
+                                    <a
+                                        className="block rounded-md py-3 font-mono text-base no-underline dark:hover:text-white sm:inline-block sm:rounded-full sm:bg-white/0 sm:px-5 sm:font-normal sm:hover:bg-neutral-900/5 dark:sm:hover:bg-white/10 md:text-xl"
+                                        href="/blog"
+                                    >
+                                        blogs
+                                    </a>
+                                </li>
                             </ul>
 
                             <div className="md:hidden">
@@ -95,6 +103,14 @@ export default function App({
                                     href="/friends"
                                 >
                                     friends
+                                </a>
+                            </li>
+                            <li className="shrink-0">
+                                <a
+                                    className="block rounded-md bg-white/0 px-5 py-3 font-mono text-lg font-normal no-underline hover:bg-neutral-900/5 dark:hover:bg-white/10 dark:hover:text-white"
+                                    href="/blog"
+                                >
+                                    blogs
                                 </a>
                             </li>
                             <li className="mt-4 flex h-12 w-full select-none items-center justify-center space-x-2 rounded-sm text-right text-base no-underline opacity-50 hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring sm:select-text md:text-xl">

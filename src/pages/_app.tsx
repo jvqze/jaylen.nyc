@@ -22,7 +22,7 @@ export default function App({
     return (
         <SessionProvider session={session}>
             <ErrorBoundary>
-                <div className="mx-auto max-w-4xl bg-ThemeDark px-5 py-10">
+                <div className="mx-auto max-w-4xl bg-ThemeDark">
                     <div className="flex items-center justify-between">
                         <nav className="flex-1">
                             <ul className="hidden space-x-4 md:flex">

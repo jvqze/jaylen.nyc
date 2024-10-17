@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { FaEnvelope, FaGamepad, FaGithub, FaImage } from "react-icons/fa"; // Import icons for connections
+import { FaEnvelope, FaGamepad, FaGithub, FaImage } from "react-icons/fa";
 import { Data as LanyardData, useLanyard } from "use-lanyard";
 
 import SpotifyIntegration from "../components/SpotifyIntegration";
@@ -37,14 +37,13 @@ export default function Page(prop: lanyardprops): JSX.Element {
     const customStatusActivity = activities.find(activity => activity.type === 4);
 
     return (
-        <div className="overflow-hidden">
+        <div className="">
             <Head>
                 <title>jaylen.nyc</title>
-            </Head>
+            </Head> 
 
-            <main className="flex min-h-screen flex-col items-center justify-center overflow-hidden p-4">
-                {/* Profile Card */}
-                <div className="relative w-full max-w-full overflow-y-auto rounded-lg bg-[#202020] p-6 shadow-2xl sm:max-w-lg sm:p-8 md:max-w-xl">
+            <main className="flex min-h-screen flex-col items-center justify-center  p-4">
+                <div className="w-full max-w-full rounded-lg bg-[#202020] p-6 shadow-2xl sm:max-w-lg sm:p-8 md:max-w-xl">
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-b from-[#131212] to-transparent opacity-10"></div>
                     <div className="flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-4 sm:space-y-0">
                         <div className="relative">

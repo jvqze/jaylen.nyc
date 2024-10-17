@@ -25,7 +25,7 @@ export default function App({
                 <div className="mx-auto max-w-4xl bg-ThemeDark">
                     <div className="flex items-center justify-between">
                         <nav className="flex-1">
-                            <ul className="hidden space-x-4 md:flex">
+                            <ul className="hidden space-x-4 md:flex px-5 py-10">
                                 <li className="shrink-0">
                                     <a
                                         className="block rounded-md py-3 font-mono text-base no-underline dark:hover:text-white sm:inline-block sm:rounded-full sm:bg-white/0 sm:px-5 sm:font-normal sm:hover:bg-neutral-900/5 dark:sm:hover:bg-white/10 md:text-xl"
@@ -62,7 +62,7 @@ export default function App({
 
                             <div className="md:hidden">
                                 <button
-                                    className="text-xl focus:outline-none"
+                                    className="text-xl focus:outline-none px-5 py-10"
                                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                                 >
                                     {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -80,7 +80,7 @@ export default function App({
                         animate={{ height: isMenuOpen ? "auto" : 0 }}
                         className="overflow-hidden md:hidden"
                     >
-                        <ul className="mt-4 space-y-4">
+                        <ul className="mt-4 space-y-4 ">
                             <li className="shrink-0">
                                 <a
                                     className="block rounded-md bg-white/0 px-5 py-3 font-mono text-lg font-normal no-underline hover:bg-neutral-900/5 dark:hover:bg-white/10 dark:hover:text-white"

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function UploadedFilesPage(): JSX.Element {
     const { data: session } = useSession();
-    const [uploadedFiles, setUploadedFiles] = useState<Array<{ name: string; link: string }>>([]);
+    const [uploadedFiles, setUploadedFiles] = useState<Array<{ link: string }>>([]);
 
     useEffect(() => {
         const fetchUploadedFiles = async () => {
@@ -13,6 +13,7 @@ export default function UploadedFilesPage(): JSX.Element {
                     const res = await fetch(`/api/fe2/getFiles?email=${session.user?.email}`);
                     if (res.ok) {
                         const files = await res.json();
+                        console.log("Fetched files:", files);
                         setUploadedFiles(files);
                     } else {
                         console.error("Error fetching uploaded files:", res.statusText);
@@ -24,6 +25,11 @@ export default function UploadedFilesPage(): JSX.Element {
         };
         fetchUploadedFiles();
     }, [session]);
+
+    // Function to extract filename from the link
+    const extractFilename = (url: string) => {
+        return url.split('/').pop();
+    };
 
     return (
         <div>
@@ -51,7 +57,8 @@ export default function UploadedFilesPage(): JSX.Element {
                                                 rel="noopener noreferrer"
                                                 className="text-blue-500 underline"
                                             >
-                                                {file.name}
+                                                {/* Use filename extracted from the link if name is missing */}
+                                                {extractFilename(file.link)}
                                             </a>
                                         </li>
                                     ))}

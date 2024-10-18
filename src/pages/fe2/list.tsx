@@ -28,7 +28,7 @@ export default function UploadedFilesPage(): JSX.Element {
 
     // Function to extract filename from the link
     const extractFilename = (url: string) => {
-        return url.split('/').pop();
+        return url.split("/").pop();
     };
 
     return (

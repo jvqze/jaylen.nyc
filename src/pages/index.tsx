@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { FaEnvelope, FaGamepad, FaGithub, FaImage } from "react-icons/fa";
 import { Data as LanyardData, useLanyard } from "use-lanyard";
 
 import SpotifyIntegration from "../components/SpotifyIntegration";
@@ -40,9 +39,9 @@ export default function Page(prop: lanyardprops): JSX.Element {
         <div className="">
             <Head>
                 <title>jaylen.nyc</title>
-            </Head> 
+            </Head>
 
-            <main className="flex min-h-screen flex-col items-center justify-center  p-4">
+            <main className="flex min-h-screen flex-col items-center justify-center p-4">
                 <div className="w-full max-w-full rounded-lg bg-[#202020] p-6 shadow-2xl sm:max-w-lg sm:p-8 md:max-w-xl">
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full rounded-lg bg-gradient-to-b from-[#131212] to-transparent opacity-10"></div>
                     <div className="flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-x-4 sm:space-y-0">
@@ -116,43 +115,6 @@ export default function Page(prop: lanyardprops): JSX.Element {
                             <SpotifyIntegration />
                         </div>
                     )}
-                </div>
-
-                <div className="mt-4 grid w-full max-w-xl grid-cols-2 gap-4 sm:grid-cols-4">
-                    <a
-                        href="https://github.com/jvqze"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
-                    >
-                        <FaGithub className="h-6 w-6 text-white" />
-                        <span className="text-sm text-white">GitHub</span>
-                    </a>
-                    <a
-                        href="https://www.roblox.com/users/379649306/profile"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
-                    >
-                        <FaGamepad className="h-6 w-6 text-white" />
-                        <span className="text-sm text-white">Roblox</span>
-                    </a>
-                    <a
-                        href="mailto:me@jaylen.nyc"
-                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
-                    >
-                        <FaEnvelope className="h-6 w-6 text-white" />
-                        <span className="text-sm text-white">Email</span>
-                    </a>
-                    <a
-                        href="https://cdn.jaylen.nyc/r/secret-omg-stop-please-dont-click.gif"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-col items-center justify-center space-y-2 rounded-lg border-2 border-gray-700 p-4"
-                    >
-                        <FaImage className="h-6 w-6 text-white" />
-                        <span className="text-sm text-white">Funny Image</span>
-                    </a>
                 </div>
             </main>
         </div>

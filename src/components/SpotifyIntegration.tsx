@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SiSpotify } from "react-icons/si";
 
 interface SpotifyData {
     song: string;
     artist: string;
     album_art_url: string;
+    timestamps: {
+        start: number;
+        end: number;
+    };
 }
 
 interface LanyardPresence {
@@ -21,6 +25,8 @@ export const DISCORD_ID = "1203092268672753785";
 
 const SpotifyIntegration: React.FC = () => {
     const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
+    const [progress, setProgress] = useState(0);
+    const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         let socket: WebSocket;
@@ -50,6 +56,10 @@ const SpotifyIntegration: React.FC = () => {
                         if (message.t === "INIT_STATE" || message.t === "PRESENCE_UPDATE") {
                             if (presence.spotify) {
                                 setSpotifyData(presence.spotify);
+                                updateProgress(
+                                    presence.spotify.timestamps.start,
+                                    presence.spotify.timestamps.end,
+                                );
                             } else {
                                 setSpotifyData(null);
                             }
@@ -69,7 +79,7 @@ const SpotifyIntegration: React.FC = () => {
                 }
             };
 
-            socket.onclose = (event) => {
+            socket.onclose = event => {
                 console.log("WebSocket connection closed", event);
                 clearInterval(heartbeatIntervalId);
                 if (event.wasClean === false) {
@@ -80,7 +90,7 @@ const SpotifyIntegration: React.FC = () => {
                 }
             };
 
-            socket.onerror = (error) => {
+            socket.onerror = error => {
                 console.error("WebSocket error", error);
                 socket.close();
             };
@@ -94,14 +104,43 @@ const SpotifyIntegration: React.FC = () => {
         };
     }, []);
 
+    const updateProgress = (start: number, end: number) => {
+        const totalDuration = end - start;
+        if (progressIntervalRef.current) {
+            clearInterval(progressIntervalRef.current);
+        }
+
+        progressIntervalRef.current = setInterval(() => {
+            const currentTime = Date.now();
+            const elapsedTime = currentTime - start;
+            const progressPercentage = Math.min((elapsedTime / totalDuration) * 100, 100);
+            setProgress(progressPercentage);
+
+            if (elapsedTime >= totalDuration) {
+                clearInterval(progressIntervalRef.current!);
+            }
+        }, 1000);
+    };
+
     if (!spotifyData) return null;
 
+    const formatTime = (ms: number) => {
+        const minutes = Math.floor(ms / 60000);
+        const seconds = Math.floor((ms % 60000) / 1000)
+            .toString()
+            .padStart(2, "0");
+        return `${minutes}:${seconds}`;
+    };
+
+    const songDuration = spotifyData.timestamps.end - spotifyData.timestamps.start;
+    const currentTime = Date.now() - spotifyData.timestamps.start;
+
     return (
-        <div className="mx-auto mt-3 flex w-full flex-wrap items-center space-x-3 rounded-lg bg-neutral-900 p-3 sm:space-x-4 sm:p-4 md:flex-nowrap">
+        <div className="mx-auto mt-3 flex w-full flex-wrap items-center space-x-3 rounded-lg bg-neutral-900 px-2 py-2 sm:space-x-4 sm:p-4 md:flex-nowrap">
             <img
                 alt={spotifyData.song}
                 src={spotifyData.album_art_url}
-                className="h-12 w-12 rounded-md object-cover sm:h-16 sm:w-16"
+                className="h-20 w-20 rounded-md object-cover sm:h-24 sm:w-24"
                 draggable={false}
             />
             <div className="mt-2 flex-1 md:mt-0">
@@ -115,6 +154,18 @@ const SpotifyIntegration: React.FC = () => {
                     {spotifyData.song}
                 </h1>
                 <span className="text-xs opacity-80 sm:text-sm">{spotifyData.artist}</span>
+
+                <div className="mt-2 h-2.5 w-full rounded-full bg-gray-700">
+                    <div
+                        className="h-2.5 rounded-full bg-[#1ed760]"
+                        style={{ width: `${progress}%` }}
+                    ></div>
+                </div>
+
+                <div className="mt-1 flex justify-between text-xs text-gray-400">
+                    <span>{formatTime(currentTime)}</span>
+                    <span>{formatTime(songDuration)}</span>
+                </div>
             </div>
         </div>
     );

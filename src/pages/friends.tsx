@@ -47,8 +47,6 @@ export default function Friends(): JSX.Element {
     );
 }
 
-// https://cdn.jaylen.nyc/opera_c3AoNj6yan.png
-
 function TechIcon({ icon: Icon, text }: { icon: any; text: string }) {
     return (
         <motion.div

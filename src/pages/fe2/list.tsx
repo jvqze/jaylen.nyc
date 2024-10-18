@@ -57,7 +57,6 @@ export default function UploadedFilesPage(): JSX.Element {
                                                 rel="noopener noreferrer"
                                                 className="text-blue-500 underline"
                                             >
-                                                {/* Use filename extracted from the link if name is missing */}
                                                 {extractFilename(file.link)}
                                             </a>
                                         </li>

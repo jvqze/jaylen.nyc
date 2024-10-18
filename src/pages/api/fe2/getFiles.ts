@@ -7,8 +7,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await MongooseConnect();
 
     const { method } = req;
-    console.log(method);
-
     switch (method) {
         case "GET":
             try {
@@ -18,7 +16,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
 
                 const files = await AudioFileModel.find({ email });
-                console.log(files);
                 return res
                     .status(200)
                     .json(files.map(file => ({ name: file.name, link: file.audioLink })));
@@ -36,7 +33,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                 const newAudioFile = new AudioFileModel({ email, audioLink, name });
                 await newAudioFile.save();
-
                 return res.status(201).json({ message: "File saved successfully." });
             } catch (error) {
                 console.error("Error saving file:", error);

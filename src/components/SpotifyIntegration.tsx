@@ -23,51 +23,74 @@ const SpotifyIntegration: React.FC = () => {
     const [spotifyData, setSpotifyData] = useState<SpotifyData | null>(null);
 
     useEffect(() => {
-        const socket = new WebSocket("wss://api.lanyard.rest/socket");
-        socket.onopen = () => {
-            console.log("WebSocket connection opened");
-            const subscribeMessage = {
-                op: 2,
-                d: {
-                    subscribe_to_id: DISCORD_ID,
-                },
+        let socket: WebSocket;
+        let heartbeatIntervalId: NodeJS.Timeout;
+        let reconnectTimeoutId: NodeJS.Timeout;
+
+        const connectWebSocket = () => {
+            socket = new WebSocket("wss://api.lanyard.rest/socket");
+
+            socket.onopen = () => {
+                console.log("WebSocket connection opened");
+                const subscribeMessage = {
+                    op: 2,
+                    d: {
+                        subscribe_to_id: DISCORD_ID,
+                    },
+                };
+                socket.send(JSON.stringify(subscribeMessage));
             };
-            socket.send(JSON.stringify(subscribeMessage));
-        };
 
-        socket.onmessage = (event: MessageEvent) => {
-            const message: LanyardMessage = JSON.parse(event.data);
-            switch (message.op) {
-                case 0: {
-                    const presence: LanyardPresence = message.d;
+            socket.onmessage = (event: MessageEvent) => {
+                const message: LanyardMessage = JSON.parse(event.data);
+                switch (message.op) {
+                    case 0: {
+                        const presence: LanyardPresence = message.d;
 
-                    if (message.t === "INIT_STATE" || message.t === "PRESENCE_UPDATE") {
-                        if (presence.spotify) {
-                            setSpotifyData(presence.spotify);
-                        } else {
-                            setSpotifyData(null);
+                        if (message.t === "INIT_STATE" || message.t === "PRESENCE_UPDATE") {
+                            if (presence.spotify) {
+                                setSpotifyData(presence.spotify);
+                            } else {
+                                setSpotifyData(null);
+                            }
                         }
+                        break;
                     }
-                    break;
+                    case 1: {
+                        const heartbeatInterval = message.d.heartbeat_interval;
+                        if (heartbeatIntervalId) clearInterval(heartbeatIntervalId);
+                        heartbeatIntervalId = setInterval(() => {
+                            socket.send(JSON.stringify({ op: 3 }));
+                        }, heartbeatInterval);
+                        break;
+                    }
+                    default:
+                        break;
                 }
-                case 1: {
-                    const heartbeatInterval = message.d.heartbeat_interval;
-                    setInterval(() => {
-                        socket.send(JSON.stringify({ op: 3 }));
-                    }, heartbeatInterval);
-                    break;
+            };
+
+            socket.onclose = (event) => {
+                console.log("WebSocket connection closed", event);
+                clearInterval(heartbeatIntervalId);
+                if (event.wasClean === false) {
+                    reconnectTimeoutId = setTimeout(() => {
+                        console.log("[LANYARD WEBSOCKET]: Reattempting to Open");
+                        connectWebSocket();
+                    }, 5000);
                 }
-                default:
-                    break;
-            }
+            };
+
+            socket.onerror = (error) => {
+                console.error("WebSocket error", error);
+                socket.close();
+            };
         };
 
-        socket.onclose = () => {
-            console.log("WebSocket connection closed");
-        };
-
+        connectWebSocket();
         return () => {
             socket.close();
+            clearInterval(heartbeatIntervalId);
+            clearTimeout(reconnectTimeoutId);
         };
     }, []);
 

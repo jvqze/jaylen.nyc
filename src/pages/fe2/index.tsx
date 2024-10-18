@@ -21,7 +21,7 @@ export default function Page(): JSX.Element {
 
             if (isValidAudio) {
                 setUploadStatus("");
-                setSelectedFile(file); // File is set here after validation
+                setSelectedFile(file);
             } else {
                 setUploadStatus("Please upload a valid .mp3 or .ogg file.");
                 setSelectedFile(null);

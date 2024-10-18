@@ -1,11 +1,9 @@
 import { useState } from "react";
 import Head from "next/head";
 
-// Constants for game status
 const HUMAN = "O";
 const AI = "X";
 
-// Check if there is a winner
 const checkWinner = (board: string[]) => {
   const winPatterns = [
     [0, 1, 2],
@@ -25,10 +23,9 @@ const checkWinner = (board: string[]) => {
     }
   }
 
-  return board.includes("") ? null : "draw"; // Return draw if the board is full and no winner
+  return board.includes("") ? null : "draw";
 };
 
-// Minimax algorithm to make the AI unbeatable
 const minimax = (board: string[], depth: number, isMaximizing: boolean) => {
   const winner = checkWinner(board);
   if (winner === AI) return 10 - depth;
@@ -60,7 +57,6 @@ const minimax = (board: string[], depth: number, isMaximizing: boolean) => {
   }
 };
 
-// AI move using minimax algorithm
 const bestMove = (board: string[]) => {
   let bestScore = -Infinity;
   let move = -1;
@@ -96,7 +92,6 @@ export default function Home(): JSX.Element {
         return;
       }
 
-      // AI makes a move
       const aiMove = bestMove(newBoard);
       newBoard[aiMove] = AI;
       setBoard(newBoard);

@@ -16,17 +16,30 @@
         "@vercel/analytics": "^1.3.1",
         "@vercel/speed-insights": "^1.0.10",
         "aos": "^2.3.4",
+        "axios": "^1.1.3",
+        "dayjs": "^1.11.6",
         "dotenv": "^16.4.5",
         "formidable": "^3.5.1",
         "framer-motion": "^11.9.0",
+        "gray-matter": "^4.0.3",
+        "howler": "^2.2.4",
         "mongodb": "^6.9.0",
         "mongoose": "^8.7.0",
         "next-auth": "^4.24.8",
         "next-themes": "^0.2.1",
+        "node-fetch": "^3.3.2",
         "nprogress": "^0.2.0",
         "react": "^18.2.0",
+        "react-confetti": "^6.1.0",
+        "react-dom": "^18.3.1",
         "react-icons": "^4.12.0",
+        "react-player": "^2.15.1",
+        "react-tippy": "1.4.0",
+        "remark": "^15.0.1",
+        "remark-html": "^16.0.1",
+        "request-ip": "^3.3.0",
         "swr": "^1.3.0",
+        "use-lanyard": "1.5.2",
         "uuid": "^10.0.0"
     },
     "devDependencies": {
@@ -41,9 +54,7 @@
         "@types/request-ip": "^0.0.41",
         "@types/uuid": "^10.0.0",
         "autoprefixer": "10.4.20",
-        "axios": "^1.7.7",
         "next": "^14.2.14",
-        "node-fetch": "^3.3.2",
         "postcss": "^8.4.35",
         "prettier": "^3.2.5",
         "prettier-plugin-sort-json": "^4.0.0",
@@ -51,9 +62,9 @@
         "tailwindcss": "3.4.13",
         "typescript": "5.6.3"
     },
-    "name": "fe2.jaylen.nyc",
-    "version": "1.0.0",
-    "description": "A subdomain but for a Roblox Game called Flood Escape 2 Communtity Maps.",
+    "name": "jaylen.nyc",
+    "version": "2.0.7",
+    "description": "jaylen.nyc is my own website that I made with React & Next.js using typescript testing at my full knowledge of the framework and using TailwindCSS. This project is still in development while I'm working with APIs & Authentication.",
     "main": "next.config.js",
     "keywords": [
         "website",
@@ -64,5 +75,5 @@
         "typescript"
     ],
     "author": "Jaylen",
-    "license": "MIT"
+    "license": "ISC"
 }

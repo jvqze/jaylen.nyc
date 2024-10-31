@@ -9,6 +9,7 @@ const events = {
     earthDay: [22, 4],
     birthday: [12, 12],
     thanksgiving: [24, 11],
+    halloween: [31, 10],
 };
 
 const Time = () => {
@@ -36,6 +37,7 @@ const Time = () => {
                             earthDay: "Happy Earth Day!",
                             birthday: "It's my birthday!",
                             thanksgiving: "I'm thankful for you!",
+                            halloween: "Happy Halloween!",
                         }[currentEvent]
                     }
                 </span>

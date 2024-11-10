@@ -111,51 +111,46 @@ export default function Home(): JSX.Element {
     };
 
     return (
-        <div>
+        <main className="mx-auto max-w-3xl space-y-4 md:py-24">
             <Head>
                 <title>404 | jaylen.nyc</title>
             </Head>
+            <div className="space-y-4 text-center">
+                <span className="text-3xl font-extrabold sm:text-4xl md:text-6xl">404</span>
+                <p className="opacity-90">
+                    This page does not exist... but how about a game of Tic-Tac-Toe?
+                </p>
+            </div>
 
-            <main>
-                <div className="mx-auto max-w-3xl space-y-4 md:py-24">
-                    <div className="space-y-4 text-center">
-                        <span className="text-3xl font-extrabold sm:text-4xl md:text-6xl">404</span>
-                        <p className="opacity-90">
-                            This page does not exist... but how about a game of Tic-Tac-Toe?
-                        </p>
-                    </div>
-
-                    <div className="mt-8 text-center">
-                        <div className="mx-auto grid max-w-xs grid-cols-3 gap-4">
-                            {board.map((value, index) => (
-                                <div
-                                    key={index}
-                                    onClick={() => handleClick(index)}
-                                    className={`flex h-24 w-24 cursor-pointer items-center justify-center bg-gray-200 text-4xl font-bold ${
-                                        value === HUMAN ? "text-green-600" : "text-red-600"
-                                    }`}
-                                >
-                                    {value}
-                                </div>
-                            ))}
+            <div className="mt-8 text-center">
+                <div className="mx-auto grid max-w-xs grid-cols-3 gap-4">
+                    {board.map((value, index) => (
+                        <div
+                            key={index}
+                            onClick={() => handleClick(index)}
+                            className={`flex h-24 w-24 cursor-pointer items-center justify-center bg-gray-200 text-4xl font-bold ${
+                                value === HUMAN ? "text-green-600" : "text-red-600"
+                            }`}
+                        >
+                            {value}
                         </div>
-
-                        {gameOver && (
-                            <div className="mt-4">
-                                <p className="text-lg font-semibold">
-                                    {winner === "draw" ? "It's a draw!" : `Winner: ${winner}`}
-                                </p>
-                                <button
-                                    onClick={resetGame}
-                                    className="mt-4 rounded bg-gray-900 px-4 py-2 text-white"
-                                >
-                                    Play Again
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                    ))}
                 </div>
-            </main>
-        </div>
+
+                {gameOver && (
+                    <div className="mt-4">
+                        <p className="text-lg font-semibold">
+                            {winner === "draw" ? "It's a draw!" : `Winner: ${winner}`}
+                        </p>
+                        <button
+                            onClick={resetGame}
+                            className="mt-4 rounded bg-gray-900 px-4 py-2 text-white"
+                        >
+                            Play Again
+                        </button>
+                    </div>
+                )}
+            </div>
+        </main>
     );
 }

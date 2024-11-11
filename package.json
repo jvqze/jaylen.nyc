@@ -40,7 +40,7 @@
         "request-ip": "^3.3.0",
         "swr": "^1.3.0",
         "use-lanyard": "1.5.2",
-        "uuid": "^10.0.0"
+        "uuid": "^11.0.3"
     },
     "devDependencies": {
         "@ianvs/prettier-plugin-sort-imports": "^4.2.1",

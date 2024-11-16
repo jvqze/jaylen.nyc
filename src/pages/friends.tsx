@@ -27,6 +27,8 @@ export default function Friends(): JSX.Element {
                                     { icon: HeartIcon, text: "jeanine" },
                                     { icon: HeartIcon, text: "sadurn" },
                                     { icon: HeartIcon, text: "ethan" },
+                                    { icon: HeartIcon, text: "enrique is not gay" },
+                                    
                                 ].map((item, index) => (
                                     <TechIcon key={index} icon={item.icon} text={item.text} />
                                 ))}
